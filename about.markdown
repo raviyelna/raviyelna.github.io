@@ -11,30 +11,31 @@ comments: false
   <img src="/assets/img/logo_HISC.jpg" alt="Centered HISC logo" width="100">
 </p>
 
+ <div style="display: flex; align-items: flex-start;">
+
   <!-- Left side image -->
-  <div style="flex: 1;">
-    <img src="/assets/img/real_pic.jpg" alt="myself" style="max-width: 40%; height: auto;">
+  <div style="flex: 0 0 auto; padding-right: 20px;">
+    <img src="/path/to/your/image.png" alt="Description of Image" style="max-width: 200px; height: auto;">
   </div>
 
   <!-- Right side text -->
-  <div style="flex: 1; padding-left: 20px;">
+  <div style="flex: 1;">
   
+  ## Informations
 
-## Informations
+  -   Fullname: Lê Nhựt Quốc Khang
+  -   DoB: 28/03/2005
+  -   Currently a 2nd year Student
+  -   Major: Infomation Security  
+  -   Hobbies: read Novel, Listen to music
+  -   CTFs roles: Digital Forensics, Reverse engineering
 
--   Fullname: Lê Nhựt Quốc Khang
--   DoB: 28/03/2005
--   Currently a 2nd year Student
--   Major: Infomation Security  
--   Hobbies: read Novel, Listen to music
--   CTFs roles: Digital Forensics, Reverse engineering
+  ## Contacts
 
-## Contacts
-
--   Discord:  raviyelna
--   Facebook: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
--   Email:    raviel.insec@gmail.com
--   hackmd:   [Raviyelna](https://hackmd.io/@Raviyelna)
+  -   Discord:  raviyelna
+  -   Facebook: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
+  -   Email:    raviel.insec@gmail.com
+  -   hackmd:   [Raviyelna](https://hackmd.io/@Raviyelna)
 
   </div>
 
