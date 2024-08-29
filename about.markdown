@@ -15,31 +15,36 @@ comments: false
 
   <!-- Left side image -->
   <div style="flex: 0 0 auto; padding-right: 20px;">
-    <img src="/path/to/your/image.png" alt="Description of Image" style="max-width: 200px; height: auto;">
+    <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" style="max-width: 80%; height: auto;">
   </div>
 
   <!-- Right side text -->
   <div style="flex: 1;">
-  
+
+  <!-- Markdown needs to be inside HTML tag with class "markdown-body" to render properly -->
+  <div class="markdown-body">
+
   ## Informations
 
-  -   Fullname: Lê Nhựt Quốc Khang
-  -   DoB: 28/03/2005
-  -   Currently a 2nd year Student
-  -   Major: Infomation Security  
-  -   Hobbies: read Novel, Listen to music
-  -   CTFs roles: Digital Forensics, Reverse engineering
+  - **Fullname**: Lê Nhựt Quốc Khang
+  - **DoB**: 28/03/2005
+  - **Currently a 2nd year Student**
+  - **Major**: Information Security  
+  - **Hobbies**: read Novels, Listen to music
+  - **CTFs roles**: Digital Forensics, Reverse engineering
 
   ## Contacts
 
-  -   Discord:  raviyelna
-  -   Facebook: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
-  -   Email:    raviel.insec@gmail.com
-  -   hackmd:   [Raviyelna](https://hackmd.io/@Raviyelna)
+  - **Discord**: raviyelna
+  - **Facebook**: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
+  - **Email**: raviel.insec@gmail.com
+  - **hackmd**: [Raviyelna](https://hackmd.io/@Raviyelna)
 
-  </div>
+  </div> <!-- End of markdown-body -->
 
-</div>
+  </div> <!-- End of right-side text div -->
+
+</div> <!-- End of flex container div -->
 
 ## Random Pictures for you
 
