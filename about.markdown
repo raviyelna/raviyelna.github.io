@@ -24,23 +24,23 @@ comments: false
   <!-- Markdown needs to be inside HTML tag with class "markdown-body" to render properly -->
   <div class="markdown-body">
 
-  ## Informations
+  <h2>Informations</h2>
+  <ul>
+    <li><strong>Fullname:</strong> Lê Nhựt Quốc Khang</li>
+    <li><strong>DoB:</strong> 28/03/2005</li>
+    <li><strong>Currently a 2nd year Student</strong></li>
+    <li><strong>Major:</strong> Information Security</li>
+    <li><strong>Hobbies:</strong> read Novels, Listen to music</li>
+    <li><strong>CTFs roles:</strong> Digital Forensics, Reverse engineering</li>
+  </ul>
 
-  - **Fullname**: Lê Nhựt Quốc Khang
-  - **DoB**: 28/03/2005
-  - **Currently a 2nd year Student**
-  - **Major**: Information Security  
-  - **Hobbies**: read Novels, Listen to music
-  - **CTFs roles**: Digital Forensics, Reverse engineering
-
-  ## Contacts
-
-  - **Discord**: raviyelna
-  - **Facebook**: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
-  - **Email**: raviel.insec@gmail.com
-  - **hackmd**: [Raviyelna](https://hackmd.io/@Raviyelna)
-
-  </div> <!-- End of markdown-body -->
+  <h2>Contacts</h2>
+  <ul>
+    <li><strong>Discord:</strong> raviyelna</li>
+    <li><strong>Facebook:</strong> <a href="https://www.facebook.com/Kann.Raviel">Lê Nhựt Quốc Khang</a></li>
+    <li><strong>Email:</strong> raviel.insec@gmail.com</li>
+    <li><strong>hackmd:</strong> <a href="https://hackmd.io/@Raviyelna">Raviyelna</a></li>
+  </ul>
 
   </div> <!-- End of right-side text div -->
 
