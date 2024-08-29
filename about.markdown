@@ -1,38 +1,39 @@
 ---
 layout: page
-title: About the Theme
+title: About Raviel
 tags: [about, Jekyll, theme, moon]
 date: 2024-02-11
 comments: false
 ---
 
-<center><a href="http://TolgaTatli.github.io/Moonrise"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+<center>currently a member of <a href="https://www.facebook.com/hisc.fit.hcmute.edu.vn/"><b>HISC</b></a>.</center>
+<p align="center">
+  <img src="/assets/img/logo_HISC.jpg" alt="Centered HISC logo" width="100">
+</p>
 
-## Features
 
--   Minimal, you can focus on your content
--   Responsive
--   Disqus integration
--   Syntax highlighting
--   Optional post image
--   Social icons
--   Page for sharing projects
--   Optional background image
--   Simple navigation menu
--   MathJax support
+## Informations
 
-## Preview
+-   Currently a 2nd year Student
+-   Major: Infomation Security  
+-   Hobbies: read Novel, Listen to music
+-   CTFs roles: Digital Forensics, Reverse engineering
+
+## Contacts
+
+-   Discord:  raviyelna
+-   Facebook: [Lê Nhựt Quốc Khang](https://www.facebook.com/Kann.Raviel)
+-   Email:    raviel.insec@gmail.com
+-   hackmd:   [Raviyelna](https://hackmd.io/@Raviyelna)
+
+
+
+## Random Pictures for you
 
 {% capture images %}
-https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
+https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/baelz.jpg
+https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/IRYS.jpg
+https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/waifu.jpg
+{% endcapture %} 
+{% include gallery images=images caption="Have some beautiful pictures" cols=3 %}
 
-See a [live version of Moon](http://TolgaTatli.github.io/Moonrise) hosted on GitHub.
-
-## Getting Started
-
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-
-[Install Moon](https://github.com/TolgaTatli/Moonrise){: .btn}
