@@ -15,7 +15,7 @@ comments: false
 
   <!-- Left side image -->
   <div style="flex: 0 0 auto; padding-right: 20px;">
-    <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" style="max-width: 360px; height: auto;">
+    <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" style="max-width: 330px; height: auto;">
   </div>
 
   <!-- Right side text -->
