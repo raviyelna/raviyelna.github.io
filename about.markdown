@@ -11,9 +11,19 @@ comments: false
   <img src="/assets/img/logo_HISC.jpg" alt="Centered HISC logo" width="100">
 </p>
 
+  <!-- Left side image -->
+  <div style="flex: 1;">
+    <img src="/assets/img/real_pic.jpg" alt="myself" style="max-width: 40%; height: auto;">
+  </div>
+
+  <!-- Right side text -->
+  <div style="flex: 1; padding-left: 20px;">
+  
 
 ## Informations
 
+-   Fullname: Lê Nhựt Quốc Khang
+-   DoB: 28/03/2005
 -   Currently a 2nd year Student
 -   Major: Infomation Security  
 -   Hobbies: read Novel, Listen to music
@@ -26,7 +36,9 @@ comments: false
 -   Email:    raviel.insec@gmail.com
 -   hackmd:   [Raviyelna](https://hackmd.io/@Raviyelna)
 
+  </div>
 
+</div>
 
 ## Random Pictures for you
 
