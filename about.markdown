@@ -21,9 +21,6 @@ comments: false
   <!-- Right side text -->
   <div style="flex: 1;">
 
-  <!-- Markdown needs to be inside HTML tag with class "markdown-body" to render properly -->
-  <div class="markdown-body">
-
   <h2>Informations</h2>
   <ul>
     <li><strong>Fullname:</strong> Lê Nhựt Quốc Khang</li>
