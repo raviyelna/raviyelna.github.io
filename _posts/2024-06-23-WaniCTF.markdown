@@ -1,7 +1,7 @@
 ---
+layout: post
 title: WaniCTF
 tags: [Forensics]
-layout: post
 date:   2024-08-12 00:00:00
 excerpt: "WanCTFs 2024"
 feature: https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/background.jpg
@@ -9,7 +9,7 @@ categories: CTFs
 ---
 
 # WaniCTF
-All the challenges: https://drive.google.com/drive/folders/1n-0bDNWddJO4AJDAYqCwFduhcAZgcK61?usp=sharing
+[All the challenges](https://drive.google.com/drive/folders/1n-0bDNWddJO4AJDAYqCwFduhcAZgcK61?usp=sharing)
 
 ---
 ## Tiny_usb
@@ -29,6 +29,7 @@ The challenge gave us a iso file, just extract it and you will get a flag.
 The challenge gave us a bin file so I will strings it out first
 
 ![image](https://hackmd.io/_uploads/S1Jd2bH8C.png)
+
 I found out that its a RDP8Bmp so I will be using this **[tool](https://github.com/ANSSI-FR/bmc-tools)** to extract it https://github.com/ANSSI-FR/bmc-tools
 
 ![image](https://hackmd.io/_uploads/Hk4UR-BIR.png)
@@ -67,6 +68,7 @@ you can you editor or paint to get the flag, anyway here is the final flag
 ---
 ## mem_search
 ### Hard
+
 ![image](https://hackmd.io/_uploads/rkPbiGS8R.png)
 
 The challenge gave us a DUMP file, so I will be using volatility to solve this, its also told us that the user found an unknown file so I will be checking the download folder first.
@@ -74,6 +76,7 @@ The challenge gave us a DUMP file, so I will be using volatility to solve this, 
 ![image](https://hackmd.io/_uploads/Sk3z2GSLR.png)
 
 after checking the download I found there a suspicous file thats is "**read_this_as_admin.download**" so I dump it right away
+
 ![image](https://hackmd.io/_uploads/BJSLaMH80.png)
 
 The file connect the user to a website and download a file, so I will search for that file then read it again.
