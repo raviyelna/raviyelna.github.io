@@ -29,7 +29,8 @@ using this [script](https://gist.github.com/OALabs/30346d78a1fccf59d6bfafab42fbe
 
 The challenge gave us 3 file, its a 3D cube with random texture you can use some online tool to solve this but I will write the intended way (the author show us in discord after the CTF ended btw)
 
-![](https://media.discordapp.net/attachments/1255661205763133562/1279848684619829319/intended.mp4?ex=66d5ef78&is=66d49df8&hm=8e268737df311ebef03a3fff1a6905b9eb50f4e6dd2c802300286f2974d630f5&)
+<video controls src="https://media.discordapp.net/attachments/1255661205763133562/1279848684619829319/intended.mp4?ex=66d5ef78&is=66d49df8&hm=8e268737df311ebef03a3fff1a6905b9eb50f4e6dd2c802300286f2974d630f5&" title=""></video>
+
 
 ![]({{site.url}}/Writeup_images/CSC/3D_obj/intended_solved.png)
 
