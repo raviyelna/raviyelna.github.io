@@ -22,6 +22,7 @@
             position: relative; /* To position the image behind */
             padding: 20px;
             text-align: center;
+            color: #fff; /* Ensure text is readable */
         }
 
         /* Styling for the background image */
@@ -38,18 +39,17 @@
             z-index: -1; /* Ensure the image is behind the text */
         }
         
-        /* Ensure the text is readable */
-        .post-title h1, .post-title a {
-            position: relative;
-            color: #fff; /* White text color for contrast */
-            z-index: 1; /* Ensure text is above the image */
-        }
-        
-        /* Styling for the home button */
+        /* Ensure the button is visible */
         .post-title .btn.zoombtn {
             position: relative; /* Ensure it stays in place */
             z-index: 1; /* Make sure it is above the background */
             margin-top: 10px; /* Add margin to separate from the title */
+        }
+
+        /* Styling for text color in post-title */
+        .post-title h1 {
+            position: relative;
+            z-index: 1; /* Ensure text is above the background */
         }
     </style>
 </head>
