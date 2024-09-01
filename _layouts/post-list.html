@@ -6,56 +6,66 @@
 <head>
     {% include head.html %}
     <style>
-        /* Existing and new styles go here, including the responsive ones */
-        /* Styling for the wrapper */
+        /* Ensure the entire content fits within the viewport */
         .wrapper {
-            max-height: 100vh; /* Limit height to the viewport */
-            overflow: hidden; /* Hide overflow */
+            max-height: 100vh; /* Ensure the wrapper doesn't exceed the viewport height */
+            overflow: hidden; /* Hide any overflow in the wrapper */
+        }
+
+        /* Styling for the notice section */
+        .notice {
+            background-color: #ffeb3b; /* Light yellow background */
+            color: #333; /* Dark text */
+            padding: 20px;
+            border: 2px solid red; /* Red border */
+            margin: 20px auto; /* Center the notice */
+            max-width: 600px; /* Optional: set a max width for better readability */
+            text-align: center; /* Center text within the notice */
+        }
+
+        /* Styling for the post-title */
+        .post-title {
+            position: relative; /* To position the image behind */
+            padding: 20px;
+            text-align: center;
+            color: #fff; /* Ensure text is readable */
+        }
+
+        /* Styling for the background image */
+        .post-title::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/assets/img/ryuseigun_background.png') no-repeat center center;
+            background-size: cover;
+            filter: blur(4px); /* Adjust the blur amount as needed */
+            z-index: -1; /* Ensure the image is behind the text */
+        }
+
+        /* Ensure the button is visible */
+        .post-title .btn.zoombtn {
+            position: relative; /* Ensure it stays in place */
+            z-index: 1; /* Make sure it is above the background */
+            margin-top: 10px; /* Add margin to separate from the title */
+        }
+
+        /* Styling for text color in post-title */
+        .post-title h1 {
+            position: relative;
+            z-index: 1; /* Ensure text is above the background */
         }
 
         /* Styling for the post list box */
         .post-list {
-            max-height: 400px; /* Set a fixed height */
+            max-height: 400px; /* Set a fixed height for the box */
             overflow-y: auto; /* Enable vertical scrolling */
-            padding: 10px; /* Padding inside the box */
-            border: 1px solid #ddd; /* Optional: border */
-            background-color: #f9f9f9; /* Background color */
-            margin: 20px 0; /* Margin around the box */
-        }
-
-        /* Responsive styling for smaller screens */
-        @media (max-width: 768px) {
-            /* Make the wrapper take up more space on smaller screens */
-            .wrapper {
-                max-height: 90vh; /* Reduce height slightly */
-                padding: 10px; /* Add padding for better spacing */
-            }
-
-            /* Adjust post-list height for smaller screens */
-            .post-list {
-                max-height: 300px; /* Adjust height */
-                margin: 10px 0; /* Adjust margin */
-            }
-
-            /* Adjust the post-title styling for better mobile view */
-            .post-title {
-                padding: 15px; /* Adjust padding */
-                text-align: center; /* Center-align text */
-                font-size: 1.2rem; /* Adjust font size */
-            }
-
-            /* Adjust buttons to be more mobile-friendly */
-            .post-title .btn.zoombtn {
-                padding: 10px 20px; /* Increase padding */
-                font-size: 1rem; /* Increase font size */
-            }
-
-            /* Reduce the size of the notice section */
-            .notice {
-                margin: 10px auto; /* Adjust margin */
-                max-width: 90%; /* Make it fit better on mobile */
-                padding: 15px; /* Adjust padding */
-            }
+            padding: 10px; /* Add some padding inside the box */
+            border: 1px solid #ddd; /* Optional: border around the box */
+            background-color: #f9f9f9; /* Optional: background color */
+            margin: 20px 0; /* Optional: spacing around the box */
         }
     </style>
 </head>
