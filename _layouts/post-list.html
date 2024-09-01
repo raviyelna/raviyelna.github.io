@@ -16,7 +16,7 @@
 
         .wrapper {
             max-height: 100vh; /* Ensure the wrapper doesn't exceed the viewport height */
-            overflow: hidden; /* Hide any overflow in the wrapper */
+            overflow-y: auto; /* Enable vertical scrolling for the entire wrapper */
         }
 
         .notice {
@@ -63,8 +63,6 @@
         }
 
         .post-list {
-            max-height: 400px; /* Set a fixed height for the box */
-            overflow-y: auto; /* Enable vertical scrolling */
             padding: 10px;
             border: 1px solid #ddd;
             background-color: #f9f9f9;
