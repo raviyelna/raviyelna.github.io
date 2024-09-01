@@ -6,14 +6,12 @@ date: 2024-02-11
 comments: false
 ---
 
-<center>currently a member of <a href="https://www.facebook.com/hisc.fit.hcmute.edu.vn/"><b>HISC</b></a>.</center>
+<center>Currently a member of <a href="https://www.facebook.com/hisc.fit.hcmute.edu.vn/"><b>HISC</b></a>.</center>
 <p align="center">
   <img src="/assets/img/logo_HISC.jpg" alt="Centered HISC logo" width="100">
 </p>
 
- <div style="display: flex; align-items: flex-start;">
-
-  <div class="flex-container">
+<div class="flex-container">
   <!-- Image container -->
   <div class="image-container">
     <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" class="responsive-image">
@@ -40,6 +38,7 @@ comments: false
     </ul>
   </div> <!-- End of right-side text div -->
 </div> <!-- End of flex container div -->
+
 <style>
   /* Flex container for image and text */
   .flex-container {
@@ -47,12 +46,13 @@ comments: false
     flex-wrap: wrap; /* Allows content to wrap on smaller screens */
     align-items: flex-start; /* Align items at the start of the container */
     margin: 20px 0; /* Space around the container */
+    gap: 20px; /* Space between the items */
   }
 
   /* Responsive image container */
   .image-container {
-    flex: 0 1 330px; /* Allows the image to scale while maintaining its aspect */
-    padding-right: 20px; /* Space between image and text */
+    flex: 0 1 330px; /* Image will take up to 330px and shrink if needed */
+    max-width: 100%; /* Image container will not exceed its parent's width */
   }
 
   .responsive-image {
@@ -120,7 +120,6 @@ comments: false
   }
 </style>
 
-
 ## Random Pictures for you
 
 {% capture images %}
@@ -129,4 +128,3 @@ https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/im
 https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/waifu.jpg
 {% endcapture %} 
 {% include gallery images=images caption="Have some beautiful pictures" cols=3 %}
-
