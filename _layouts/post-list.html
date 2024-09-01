@@ -2,41 +2,30 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"><!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
 <head>
     {% include head.html %}
     <style>
-        html, body {
-            overflow: hidden; /* Disable scrolling on the body */
-            height: 100%; /* Ensure the body takes up the full height */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-        }
-
-        .wrapper {
-            max-height: 100vh; /* Ensure the wrapper doesn't exceed the viewport height */
-            overflow: hidden; /* Hide any overflow in the wrapper */
-        }
-
+        /* Styling for the notice section */
         .notice {
-            background-color: #ffeb3b;
-            color: #333;
+            background-color: #ffeb3b; /* Light yellow background */
+            color: #333; /* Dark text */
             padding: 20px;
-            border: 2px solid red;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: center;
-            font-size: 1rem; /* Responsive font size */
+            border: 2px solid red; /* Red border */
+            margin: 20px auto; /* Center the notice */
+            max-width: 600px; /* Optional: set a max width for better readability */
+            text-align: center; /* Center text within the notice */
         }
-
+        
+        /* Styling for the post-title */
         .post-title {
-            position: relative;
+            position: relative; /* To position the image behind */
             padding: 20px;
             text-align: center;
-            color: #fff;
+            color: #fff; /* Ensure text is readable */
         }
 
+        /* Styling for the background image */
         .post-title::before {
             content: "";
             position: absolute;
@@ -46,99 +35,31 @@
             height: 100%;
             background: url('/assets/img/ryuseigun_background.png') no-repeat center center;
             background-size: cover;
-            filter: blur(4px);
-            z-index: -1;
+            filter: blur(4px); /* Adjust the blur amount as needed */
+            z-index: -1; /* Ensure the image is behind the text */
         }
-
+        
+        /* Ensure the button is visible */
         .post-title .btn.zoombtn {
-            position: relative;
-            z-index: 1;
-            margin-top: 10px;
+            position: relative; /* Ensure it stays in place */
+            z-index: 1; /* Make sure it is above the background */
+            margin-top: 10px; /* Add margin to separate from the title */
         }
 
+        /* Styling for text color in post-title */
         .post-title h1 {
             position: relative;
-            z-index: 1;
-            font-size: 2rem; /* Responsive font size */
-        }
-
-        .post-list {
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            margin: 20px 0;
-        }
-
-        .post-list ul {
-            list-style-type: none; /* Remove default list style */
-            padding: 0; /* Remove default padding */
-            margin: 0; /* Remove default margin */
-        }
-
-        .post-list li {
-            margin-bottom: 15px; /* Space between list items */
-        }
-
-        .post-list a {
-            color: #0066cc; /* Link color */
-            text-decoration: none; /* Remove underline */
-            font-size: 1rem; /* Responsive font size */
-        }
-
-        .post-list p {
-            font-size: 0.9rem; /* Responsive font size */
-            color: #333; /* Text color */
-        }
-
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .notice {
-                font-size: 0.9rem; /* Smaller font size on smaller screens */
-                padding: 15px; /* Less padding for smaller screens */
-            }
-
-            .post-title h1 {
-                font-size: 1.5rem; /* Smaller heading size on smaller screens */
-            }
-
-            .post-list {
-                max-height: 300px; /* Reduce height on smaller screens */
-            }
-
-            .post-list a {
-                font-size: 0.9rem; /* Smaller font size on smaller screens */
-            }
-
-            .post-list p {
-                font-size: 0.8rem; /* Smaller font size on smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .notice {
-                font-size: 0.8rem; /* Further reduce font size on very small screens */
-            }
-
-            .post-title h1 {
-                font-size: 1.3rem; /* Further reduce heading size */
-            }
-
-            .post-list a {
-                font-size: 0.8rem; /* Further reduce link size */
-            }
-
-            .post-list p {
-                font-size: 0.7rem; /* Further reduce paragraph text size */
-            }
+            z-index: 1; /* Ensure text is above the background */
         }
     </style>
 </head>
 <body>
     {% include nav.html %}
+    <!-- Header -->
     <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
             <div class="content">
+                <!-- Notice Section -->
                 <div class="notice">
                     <div>
                         <b>If the image got corrupted I'm sorry, you can read it on my <a href="https://hackmd.io/@Raviyelna">HackMD</a></b><br>
@@ -146,6 +67,7 @@
                         <b>I'm really sorry but I won't update those picture, you can check them on my <a href="https://hackmd.io/@Raviyelna">HackMD</a> page</b>
                     </div>
                 </div>
+                <!-- End of Notice Section -->
 
                 <div class="post-title">
                     <h1>{{ page.title }}</h1>
@@ -153,7 +75,7 @@
                         <i class="fa fa-home"></i>
                     </a>
                 </div>
-
+                
                 <div class="post-list">
                     {% for post in site.posts %} 
                         {% if post.project == null %}
