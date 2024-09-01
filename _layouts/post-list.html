@@ -6,6 +6,12 @@
 <head>
     {% include head.html %}
     <style>
+        /* Ensure the entire content fits within the viewport */
+        .wrapper {
+            max-height: 100vh; /* Ensure the wrapper doesn't exceed the viewport height */
+            overflow: hidden; /* Hide any overflow in the wrapper */
+        }
+
         /* Styling for the notice section */
         .notice {
             background-color: #ffeb3b; /* Light yellow background */
@@ -16,7 +22,7 @@
             max-width: 600px; /* Optional: set a max width for better readability */
             text-align: center; /* Center text within the notice */
         }
-        
+
         /* Styling for the post-title */
         .post-title {
             position: relative; /* To position the image behind */
@@ -38,7 +44,7 @@
             filter: blur(4px); /* Adjust the blur amount as needed */
             z-index: -1; /* Ensure the image is behind the text */
         }
-        
+
         /* Ensure the button is visible */
         .post-title .btn.zoombtn {
             position: relative; /* Ensure it stays in place */
