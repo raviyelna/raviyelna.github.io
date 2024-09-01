@@ -8,8 +8,9 @@ feature: https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/
 categories: CTFs
 ---
 # CSCTF
-### Forensics
-#### Social Distencing
+## Forensics
+### Social Distencing
+
 ![]({{site.url}}/Writeup_images/CSC/Social_Distancing/chall_desp.png)
 
 The challenges gave us a zip contains of 3 files, look like them got encrypted by windows defenders (the challenge name also a hint for this)
@@ -22,14 +23,18 @@ using this [script](https://gist.github.com/OALabs/30346d78a1fccf59d6bfafab42fbe
 
 **CSCTF{y0u_un-qu4rant1n3d_my_scr1Pt!_0x91a3edff6}**
 ---
-#### 3D obj
+### 3D obj
+
 ![]({{site.url}}/Writeup_images/CSC/3D_obj/chapp_desp.png)
 
 The challenge gave us 3 file, its a 3D cube with random texture you can use some online tool to solve this but I will write the intended way (the author show us in discord after the CTF ended btw)
 
-![]({{site.url}}/Writeup_images/CSC/3D_obj/intended.mp4)
+![](https://media.discordapp.net/attachments/1255661205763133562/1279848684619829319/intended.mp4?ex=66d5ef78&is=66d49df8&hm=8e268737df311ebef03a3fff1a6905b9eb50f4e6dd2c802300286f2974d630f5&)
+
 ![]({{site.url}}/Writeup_images/CSC/3D_obj/intended_solved.png)
+
 **CSCTF{H1d1ng_in_T3x7ur3}**
 ---
-#### Bad Packets
+### Bad Packets
+
 ![]({{site.url}}/Writeup_images/CSC/bad_packets/chapp_desp.png)
