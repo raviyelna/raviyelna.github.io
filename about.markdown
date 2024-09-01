@@ -14,9 +14,45 @@ comments: false
  <div style="display: flex; align-items: flex-start;">
 
   <!-- Left side image -->
-  <div style="flex: 0 0 auto; padding-right: 20px;">
-    <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" style="max-width: 330px; height: auto;">
-  </div>
+  <div class="responsive-image-container">
+    <img src="/assets/img/real_pic.jpg" alt="not a deep fake one lmao" class="responsive-image">
+</div>
+
+<style>
+    .responsive-image-container {
+        display: flex;
+        justify-content: center;
+        flex: 0 1 auto;
+        padding-right: 20px;
+    }
+
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .responsive-image-container {
+            padding-right: 10px; /* Adjust padding for smaller screens */
+        }
+
+        .responsive-image {
+            max-width: 90%; /* Reduce the image size slightly for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .responsive-image-container {
+            padding-right: 5px; /* Further reduce padding for very small screens */
+        }
+
+        .responsive-image {
+            max-width: 80%; /* Further reduce the image size for very small screens */
+        }
+    }
+</style>
+
 
   <!-- Right side text -->
   <div style="flex: 1;">
