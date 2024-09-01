@@ -27,7 +27,7 @@ comments: false
     }
 
     .responsive-image {
-        max-width: 100%;
+        max-width: 60%;
         height: auto;
         display: block;
     }
