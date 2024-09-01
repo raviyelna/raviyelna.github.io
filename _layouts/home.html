@@ -10,9 +10,15 @@ layout: compress
 
 <head>
     {% include head.html %}
+    <style>
+        /* CSS to reduce opacity */
+        .opacity-reduced {
+            opacity: 0.8; /* Adjust this value as needed (0.0 to 1.0) */
+        }
+    </style>
 </head>
 
-<body>
+<body class="opacity-reduced">
     {% include nav.html %}
     <!-- Header -->
     <header class="header flex" role="banner">
