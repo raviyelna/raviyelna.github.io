@@ -6,32 +6,33 @@
 <head>
     {% include head.html %}
     <style>
-        /* Ensure the entire content fits within the viewport */
+        html, body {
+            overflow: hidden; /* Disable scrolling on the body */
+            height: 100%; /* Ensure the body takes up the full height */
+        }
+
         .wrapper {
             max-height: 100vh; /* Ensure the wrapper doesn't exceed the viewport height */
             overflow: hidden; /* Hide any overflow in the wrapper */
         }
 
-        /* Styling for the notice section */
         .notice {
-            background-color: #ffeb3b; /* Light yellow background */
-            color: #333; /* Dark text */
+            background-color: #ffeb3b;
+            color: #333;
             padding: 20px;
-            border: 2px solid red; /* Red border */
-            margin: 20px auto; /* Center the notice */
-            max-width: 600px; /* Optional: set a max width for better readability */
-            text-align: center; /* Center text within the notice */
+            border: 2px solid red;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
         }
 
-        /* Styling for the post-title */
         .post-title {
-            position: relative; /* To position the image behind */
+            position: relative;
             padding: 20px;
             text-align: center;
-            color: #fff; /* Ensure text is readable */
+            color: #fff;
         }
 
-        /* Styling for the background image */
         .post-title::before {
             content: "";
             position: absolute;
@@ -41,41 +42,36 @@
             height: 100%;
             background: url('/assets/img/ryuseigun_background.png') no-repeat center center;
             background-size: cover;
-            filter: blur(4px); /* Adjust the blur amount as needed */
-            z-index: -1; /* Ensure the image is behind the text */
+            filter: blur(4px);
+            z-index: -1;
         }
 
-        /* Ensure the button is visible */
         .post-title .btn.zoombtn {
-            position: relative; /* Ensure it stays in place */
-            z-index: 1; /* Make sure it is above the background */
-            margin-top: 10px; /* Add margin to separate from the title */
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
         }
 
-        /* Styling for text color in post-title */
         .post-title h1 {
             position: relative;
-            z-index: 1; /* Ensure text is above the background */
+            z-index: 1;
         }
 
-        /* Styling for the post list box */
         .post-list {
             max-height: 400px; /* Set a fixed height for the box */
             overflow-y: auto; /* Enable vertical scrolling */
-            padding: 10px; /* Add some padding inside the box */
-            border: 1px solid #ddd; /* Optional: border around the box */
-            background-color: #f9f9f9; /* Optional: background color */
-            margin: 20px 0; /* Optional: spacing around the box */
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     {% include nav.html %}
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
             <div class="content">
-                <!-- Notice Section -->
                 <div class="notice">
                     <div>
                         <b>If the image got corrupted I'm sorry, you can read it on my <a href="https://hackmd.io/@Raviyelna">HackMD</a></b><br>
@@ -83,7 +79,6 @@
                         <b>I'm really sorry but I won't update those picture, you can check them on my <a href="https://hackmd.io/@Raviyelna">HackMD</a> page</b>
                     </div>
                 </div>
-                <!-- End of Notice Section -->
 
                 <div class="post-title">
                     <h1>{{ page.title }}</h1>
