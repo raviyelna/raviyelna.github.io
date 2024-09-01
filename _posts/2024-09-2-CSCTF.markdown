@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "CSCTF"
+tags: [Forensics]
+date:   2024-09-2 00:00:00
+excerpt: "CyberSpaceCTF 2024"
+feature: https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/master/assets/img/hana_IRyS_background.png
+categories: CTFs
+---
+# CSCTF
+### Forensics
+#### Social Distencing
+![]({{site.url}}/Writeup_images/CSC/Social Distancing/chall_desp.png)
+
+
+
