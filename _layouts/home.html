@@ -11,50 +11,71 @@ layout: compress
 <head>
     {% include head.html %}
     <style>
-        /* CSS to reduce opacity */
-        .opacity-reduced {
-            opacity: 0.8; /* Adjust this value as needed (0.0 to 1.0) */
+        /* Container to apply background opacity */
+        .background-opacity {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pseudo-element for background with reduced opacity */
+        .background-opacity::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); /* Adjust color and opacity (0.0 to 1.0) */
+            z-index: -1; /* Place it behind the content */
+        }
+
+        /* Ensure that the container takes up full height */
+        .full-height {
+            min-height: 100vh;
+            position: relative;
         }
     </style>
 </head>
 
-<body class="opacity-reduced">
-    {% include nav.html %}
-    <!-- Header -->
-    <header class="header flex" role="banner">
-        <div class="container animated fadeIn">
-            <div class="row">
-                <a href="{{ site.url }}">
-                    <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
-                </a>
-                <h3 class="title">
-                    <a class="zoombtn" href="{{ site.url }}">
-                        <p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
-                    </a>
-                </h3>
-                <hr class="hr-line">
-                <h3 class="title">
+<body>
+    <div class="background-opacity full-height">
+        {% include nav.html %}
+        <!-- Header -->
+        <header class="header flex" role="banner">
+            <div class="container animated fadeIn">
+                <div class="row">
                     <a href="{{ site.url }}">
-                        <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
+                        <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
                     </a>
-                </h3>
-                {% include social-links.html %}
-                <hr class="hr-line">
-                <h3 class="title">
-                    <a class="btn zoombtn" href="{{ site.url }}/about">
-                        About
-                    </a>
-                    <a class="btn zoombtn" href="{{ site.url }}/posts">
-                        Posts
-                    </a>
-                    <a class="btn zoombtn" href="{{ site.url }}/projects">
-                        Projects
-                    </a>
-                </h3>
+                    <h3 class="title">
+                        <a class="zoombtn" href="{{ site.url }}">
+                            <p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
+                        </a>
+                    </h3>
+                    <hr class="hr-line">
+                    <h3 class="title">
+                        <a href="{{ site.url }}">
+                            <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
+                        </a>
+                    </h3>
+                    {% include social-links.html %}
+                    <hr class="hr-line">
+                    <h3 class="title">
+                        <a class="btn zoombtn" href="{{ site.url }}/about">
+                            About
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/posts">
+                            Posts
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/projects">
+                            Projects
+                        </a>
+                    </h3>
+                </div>
             </div>
-        </div>
-    </header>
-    {% include scripts.html %}
+        </header>
+        {% include scripts.html %}
+    </div>
 </body>
 
 </html>
