@@ -37,12 +37,12 @@ layout: compress
         }
 
         .post-title h1 {
-            font-size: 1.5em; /* Smaller text size for smaller screens */
+            font-size: 1.5em; /* Relative text size for smaller screens */
             margin-bottom: 10px;
         }
 
         .post-title .btn.zoombtn {
-            font-size: 0.9em; /* Smaller button size for smaller screens */
+            font-size: 0.9em; /* Relative button size for smaller screens */
             padding: 8px 12px;
             margin-top: 10px;
         }
@@ -52,6 +52,12 @@ layout: compress
             width: 100%; /* Full width for smaller screens */
             max-width: 800px; /* Maximum width for readability */
             margin: 0 auto; /* Center the content */
+        }
+
+        /* Responsive Images */
+        img {
+            max-width: 100%; /* Ensures images scale down with screen size */
+            height: auto; /* Maintains aspect ratio */
         }
 
         /* Media Queries for different screen sizes */
