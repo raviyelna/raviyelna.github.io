@@ -32,7 +32,7 @@ comments: false
         display: block;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
         .responsive-image-container {
             padding-right: 10px; /* Adjust padding for smaller screens */
         }
