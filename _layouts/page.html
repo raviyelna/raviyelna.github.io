@@ -10,86 +10,6 @@ layout: compress
 
 <head>
     {% include head.html %}
-    <!-- Meta viewport tag for responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Responsive Wrapper */
-        .wrapper {
-            max-width: 100%; /* Allows the wrapper to scale */
-            padding: 20px;
-            margin: auto;
-        }
-
-        /* Responsive Post Title */
-        .post-title {
-            text-align: center;
-            width: 100%; /* Full width on smaller screens */
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #f0f0f0; /* Light background color */
-        }
-
-        .post-title h1 {
-            font-size: 1.5em; /* Relative text size for smaller screens */
-            margin-bottom: 10px;
-        }
-
-        .post-title .btn.zoombtn {
-            font-size: 0.9em; /* Relative button size for smaller screens */
-            padding: 8px 12px;
-            margin-top: 10px;
-        }
-
-        /* Responsive Content Area */
-        .content {
-            width: 100%; /* Full width for smaller screens */
-            max-width: 800px; /* Maximum width for readability */
-            margin: 0 auto; /* Center the content */
-        }
-
-        /* Responsive Images */
-        img {
-            max-width: 100%; /* Ensures images scale down with screen size */
-            height: auto; /* Maintains aspect ratio */
-        }
-
-        /* Media Queries for different screen sizes */
-        @media (max-width: 768px) {
-            .post-title h1 {
-                font-size: 1.2em; /* Smaller text size for smaller screens */
-            }
-
-            .post-title .btn.zoombtn {
-                font-size: 0.8em; /* Smaller button size for smaller screens */
-            }
-
-            .wrapper {
-                padding: 10px; /* Reduce padding on smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .post-title h1 {
-                font-size: 1em; /* Even smaller text size for very small screens */
-            }
-
-            .post-title .btn.zoombtn {
-                font-size: 0.7em; /* Even smaller button size for very small screens */
-                padding: 6px 10px;
-            }
-
-            .wrapper {
-                padding: 5px; /* Minimal padding for very small screens */
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -107,10 +27,8 @@ layout: compress
                 {{ content }}
             </div>
         </div>
-        {% if page.comments and site.disqus_shortname %}
-        <section id="disqus_thread" class="animated fadeInUp"></section>
-        <!-- /#disqus_thread -->
-        {% endif %}
+        {% if page.comments and site.disqus_shortname %}<section id="disqus_thread" class="animated fadeInUp"></section>
+        <!-- /#disqus_thread -->{% endif %}
     </header>
     {% include scripts.html %}
     {% if site.mathjax == true %}
