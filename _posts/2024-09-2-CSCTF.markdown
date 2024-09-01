@@ -10,7 +10,7 @@ categories: CTFs
 # CSCTF
 ### Forensics
 #### Social Distencing
-![]({{site.url}}/Writeup_images/CSC/Social Distancing/chall_desp.png)
+![]({{site.url}}/Writeup_images/CSC/Social_Distancing/chall_desp.png)
 
 
 
