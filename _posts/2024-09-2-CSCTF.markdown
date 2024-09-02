@@ -21,7 +21,9 @@ using this [script](https://gist.github.com/OALabs/30346d78a1fccf59d6bfafab42fbe
 
 ![]({{site.url}}/Writeup_images/CSC/Social_Distancing/Screenshot_2.png)
 
-**CSCTF{y0u_un-qu4rant1n3d_my_scr1Pt!_0x91a3edff6}**
+```
+CSCTF{y0u_un-qu4rant1n3d_my_scr1Pt!_0x91a3edff6}
+```
 ---
 ### 3D obj
 
@@ -33,8 +35,9 @@ Video: [click_here](https://media.discordapp.net/attachments/1255661205763133562
 
 
 ![]({{site.url}}/Writeup_images/CSC/3D_obj/intended_solved.png)
-
-**CSCTF{H1d1ng_in_T3x7ur3}**
+```
+CSCTF{H1d1ng_in_T3x7ur3}
+```
 ---
 ### Bad Packets
 
@@ -57,9 +60,11 @@ After some research I found this [post](https://nasbench.medium.com/understandin
 
 ![]({{site.url}}/Writeup_images/CSC/bad_packets/image_3.png)
 
-and you got the Flag 
+and you got the Flag
 
-**CSCTF{chang3_y0ur_variab13s_b3for3_d3pl0ying}**
+```
+CSCTF{chang3_y0ur_variab13s_b3for3_d3pl0ying}
+```
 ---
 ### Memory
 
