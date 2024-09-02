@@ -118,7 +118,9 @@ Okay we got the value then its time to decrypt the picture, I will be using [Cyb
 
 ![]({{site.url}}/Writeup_images/CSC/Memory/image_5.png)
 
-**csctf{p0w3r$h3ll_$@v3d_3v3ry7h1ng_1n_3nv@r$!_Congr@tul@t10n$!}**
+```
+csctf{p0w3r$h3ll_$@v3d_3v3ry7h1ng_1n_3nv@r$!_Congr@tul@t10n$!}
+```
 ---
 ### Pretty Malicious Log
 ![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/chall_desp.png)
@@ -200,7 +202,8 @@ So lets filter the Explorer.exe and check if there any suspicious action, for so
 ![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_7.png)
 
 so the answer is **5352**
-
-**CSCTF{Pr0cm0n_1s_4_h3lpFul_sy5int3rn4l!_0x22defba1}**
+```
+CSCTF{Pr0cm0n_1s_4_h3lpFul_sy5int3rn4l!_0x22defba1}
+```
 ---
 **THANK FOR READING**
