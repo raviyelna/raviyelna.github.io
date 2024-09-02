@@ -39,3 +39,25 @@ Video: [click_here](https://media.discordapp.net/attachments/1255661205763133562
 ### Bad Packets
 
 ![]({{site.url}}/Writeup_images/CSC/bad_packets/chapp_desp.png)
+
+We got a pcap file, open it the first thing that got in my eyes is the size of the HTTP stream, its enourmous.
+
+![]({{site.url}}/Writeup_images/CSC/bad_packets/image.png)
+
+checking the content its just google search, but there some suspicious thing
+
+![]({{site.url}}/Writeup_images/CSC/bad_packets/image_2.png)
+
+as you can see the GUID it contain a string that doesnt look like a normal GUID
+```
+GET /images?guid=550e8400-e29b-41d4-a716-446655440000 HTTP/1.1
+```
+this should be a normal GUID, a GUID is typically represented as a 32-character hexadecimal string. So there something going on with these weird GUID string.
+After some research I found this [post](https://nasbench.medium.com/understanding-detecting-c2-frameworks-trevorc2-2a9ce6f1f425), its called [TrevorC2](https://github.com/trustedsec/trevorc2), so using this [script](https://github.com/Abdelrahme/Trevorc2_decrypt/blob/main/trevorc2_decrypt.py) from [@Abdelrhman](https://github.com/Abdelrahme) **(I didn't solve this)**
+
+![]({{site.url}}/Writeup_images/CSC/bad_packets/image_3.png)
+
+and you got the Flag
+**CSCTF{chang3_y0ur_variab13s_b3for3_d3pl0ying}**
+---
+### Memory
