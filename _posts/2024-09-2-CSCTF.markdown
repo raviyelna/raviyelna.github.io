@@ -57,7 +57,8 @@ After some research I found this [post](https://nasbench.medium.com/understandin
 
 ![]({{site.url}}/Writeup_images/CSC/bad_packets/image_3.png)
 
-and you got the Flag
+and you got the Flag 
+
 **CSCTF{chang3_y0ur_variab13s_b3for3_d3pl0ying}**
 ---
 ### Memory
@@ -68,7 +69,7 @@ The challenge gave us a DMP file and said something about "the image of the flag
 
 ![]({{site.url}}/Writeup_images/CSC/Memory/image.png)
 
-And you can't dump the note.txt so the only way of reading its context is string grep, mftparser, autopsy,....
+And you can't dump the note.txt so the only way of reading its context is string grep, mftparser, autopsy,...
 
 ![]({{site.url}}/Writeup_images/CSC/Memory/image_1.png)
 
@@ -119,4 +120,87 @@ Okay we got the value then its time to decrypt the picture, I will be using [Cyb
 
 **csctf{p0w3r$h3ll_$@v3d_3v3ry7h1ng_1n_3nv@r$!_Congr@tul@t10n$!}**
 ---
+### Pretty Malicious Log
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/chall_desp.png)
 
+Basicly the challenge gave us a PML file, and a total of 5 questions.
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image.png)
+
+```
+Question 1:
+What program produced this log file?
+Your answer: ###############
+Correct!
+
+Question 2:
+How many registry keys got successfully modified by the malware?
+Your answer: ###############
+Correct!
+
+Question 3:
+What is the MITRE ID of the persistence technique used by the malware?
+Your answer: ###############
+Correct!
+
+Question 4:
+What is the name of the file that is added to autoruns by the malware?
+Your answer: ###############
+Correct!
+
+Question 5:
+Which thread ID is responsible to create the environment for malware to run?
+Your answer: ###############
+Correct!
+```
+We will now start walking through these question and the answer for them
+
+
+**Question 1:What program produced this log file?**
+
+Because this a PML file so the answer is procmon or [Process Monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon)
+
+**Question 2:How many registry keys got successfully modified by the malware?**
+
+As for the challenge description mentioned "adobe crack" so this must be the adobe that got mentioned
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_1.png)
+
+It dropped 2 executable files **mOkkYMEs.exe (6988) and pcgsoUwQ.exe (6776)**
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_2.png)
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_3.png)
+
+And the total of registry keys got modified successfully is 13
+
+**Question 3:
+What is the MITRE ID of the persistence technique used by the malware?**
+
+__note: MITRE ID refers to the unique identifier assigned to tactics, techniques, and procedures (TTPs) in the MITRE ATT&CK framework.__
+
+Okay we know that the Malware drop 2 executables file and changed the registry keys, so we can search for it on [MITRE](https://attack.mitre.org/techniques/enterprise/) searching for the keyword "registry" and read the Decription we can determine that its **T1547.001**
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_4.png)
+
+**Question 4:
+What is the name of the file that is added to autoruns by the malware?**
+
+the registry key HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run is used for autorun purposes, but we see that only the **mOkkYMEs.exe** got added to the registry key successfully.
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_5.png)
+
+**Question 5: Which thread ID is responsible to create the environment for malware to run?**
+
+Okay we know that the malware is a child of Explorer.exe process
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_6.png)
+
+So lets filter the Explorer.exe and check if there any suspicious action, for some reason the first thing that got into my eyes is the right answer (it got bolded don't know why)
+
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_6.png)
+
+so the answer is **5352**
+
+**CSCTF{Pr0cm0n_1s_4_h3lpFul_sy5int3rn4l!_0x22defba1}**
+---
+**THANK FOR READING**
