@@ -197,7 +197,7 @@ Okay we know that the malware is a child of Explorer.exe process
 
 So lets filter the Explorer.exe and check if there any suspicious action, for some reason the first thing that got into my eyes is the right answer (it got bolded don't know why)
 
-![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_6.png)
+![]({{site.url}}/Writeup_images/CSC/Pretty_Malicious_Log/image_7.png)
 
 so the answer is **5352**
 
