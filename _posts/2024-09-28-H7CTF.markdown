@@ -184,13 +184,17 @@ print(plaintext)
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/MIsc/Qrco/QRco.jpg)
 
-The challenge gave us a Qrcode, scan it lead to a [gooogle drive](https://drive.google.com/file/d/12dOs1mkY5RjP8iGWwXlXOVefSj1qr6zx/view) and from there you can get a PDF file **(you can check my folder I place it in /raviyelna.github.io/Writeup_images/H7CTF/challs/MIsc/Qrco/whatCouldThisBe.pdf)**
+The challenge gave us a Qrcode, scan it lead to a [gooogle drive](https://drive.google.com/file/d/12dOs1mkY5RjP8iGWwXlXOVefSj1qr6zx/view) and from there you can get a PDF file
+
+**(you can check my folder I place it in /raviyelna.github.io/Writeup_images/H7CTF/challs/MIsc/Qrco/whatCouldThisBe.pdf)**
 
 You can see there a lot of random string but, I immediately filter out the Flag in base64 and found that the flag got encoded in base64 and divided in too parts
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/MIsc/Qrco/clue.png)
 
+
 so I will take out all the string that only contain base64 char ``` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/= ``` then wrote a python script to decode all of them and got this 
+
 ```
 QRx
 En1
