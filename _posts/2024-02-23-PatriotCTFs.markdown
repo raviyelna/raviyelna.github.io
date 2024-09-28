@@ -24,11 +24,11 @@ Look through all these IMCP packet you will get the flag
 pctf{time_to_live_exfiltration}
 ---
 #### Slingshot
-![]({{site.url}}/Writeup_images/PCTF/Slingshot/Slingshot.png
+![]({{site.url}}/Writeup_images/PCTF/Slingshot/Slingshot.png)
 
 The challenge gave us a pcapng file open it up immediately check the export object, you can see there a pyc file name download, FYI PYC is an compiled Python Script so you have to find some decompiler such [this](https://github.com/zrax/pycdc)
 
-![]({{site.url}}/Writeup_images/PCTF/Slingshot/image1.png
+![]({{site.url}}/Writeup_images/PCTF/Slingshot/image1.png)
 
 (do it by yourself, I'm to lazy to do it again so here the source code of that Python that I reconstructed)
 ```py
@@ -75,11 +75,11 @@ So you can see, its encrypt a file with the current stamptime then send it throu
 
 As we far we have known that it encrypted a file then send through port 22993, we can know filter the port 22993 to get the file back: 
 
-![]({{site.url}}/Writeup_images/PCTF/Slingshot/image2.png
+![]({{site.url}}/Writeup_images/PCTF/Slingshot/image2.png)
 
 This look like a file that got sent and we also have the timestamp from wireshark **You should check the author or CTFs event tiemezone before decrypting the file because I myself have been using my timezone until one of my teammate Quanda found the correct timestamp of it**
 
-![]({{site.url}}/Writeup_images/PCTF/Slingshot/image3.png
+![]({{site.url}}/Writeup_images/PCTF/Slingshot/image3.png)
 
 with that I used this script and got the Flag from an image
 
@@ -118,8 +118,8 @@ with open('decrypted_file.bin', 'wb') as w:
     w.write(data_bytes)
 ```
 
-![]({{site.url}}/Writeup_images/PCTF/Slingshot/image4.png
+![]({{site.url}}/Writeup_images/PCTF/Slingshot/image4.png)
 
 ---
 #### Secret Note
-![]({{site.url}}/Writeup_images/PCTF/Secret_Note/Secret_Note.png
+![]({{site.url}}/Writeup_images/PCTF/Secret_Note/Secret_Note.png)
