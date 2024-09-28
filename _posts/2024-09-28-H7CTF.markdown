@@ -211,7 +211,7 @@ gm4
 }
 ```
 
-Then just keep replacing the position, you will get the flag
+Then just keep swapping the position, you will get the flag
 **H7CTF{Qrxc04rU_En1gm4}**
 
 ---
