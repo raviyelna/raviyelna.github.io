@@ -61,7 +61,7 @@ Running that code will give you this
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/GhostIP/Screenshot_1.png)
 
 the Challenge gave us a pcap file and told us to look for the attacker's IP.
-its pretty obvious by checking the weight of these conversartion and the their behaviour we can easily confirm it 192.168.1.9, so I wont be talking about this challenge much.
+its pretty obvious by checking the weight of these conversartion and the their behaviour we can easily confirm it 192.168.1.9, so I wont be talking much about this challenge.
 
 ---
 
@@ -93,7 +93,7 @@ The challenge gave us a zip file but it has a password, let crack it first
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/john.png)
 
-okay so we got the password, unzip there a github file inside the first thing I would be checking is commit section but unfortunately I wasnt be able to solve this because I was solving like 15 mins before the ending (I was studying lmao, Idek why this CTF opened right in the middle of the week instead of the weekend) anyway lets back to solving it, if you open the Head in the log you will see alot of weird string like this
+okay so we got the password, unzip there a github repo inside the first thing I would be checking is commit section but unfortunately I wasnt be able to solve this because I was solving like 15 mins before the ending (I was studying lmao, Idek why this CTF opened right in the middle of the week instead of the weekend) anyway lets get back solving it, if you open the Head in the log you will see alot of weird string like this
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/image.png)
 
@@ -103,4 +103,6 @@ pasting the whole commit msg and we got the flag
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/flag.png)
 
 ---
-thanks for reading
+thanks for reading, eventhough the CTF occur right in the middle of the week but our team managed to achive a wonderful place, it 11th placed, GGWP guys
+
+![]({{site.url}}/Writeup_images/H7CTF/image.png)
