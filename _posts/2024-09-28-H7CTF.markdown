@@ -103,6 +103,73 @@ pasting the whole commit msg and we got the flag
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/flag.png)
 
 ---
+## Reversing
+### Eich
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/rev/eich/Screenshot_2.png)
+
+The challenge gave us 2 files, shuthtefrontdoor and trap, if you open shutthefrontdoor there will be a JSfuck script, we can use this [website](https://enkhee-osiris.github.io/Decoder-JSFuck/) to decode it
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/rev/eich/JSfuck.png)
+
+source code:
+```java
+function A(D, length) {     
+    let key = '';     
+    for (let i = 0; i < length; i++)
+        {key += D.charAt(i % D.length);}    
+    return key; }  
+function B(F, D) {    
+    let key = A(D, F.length);     
+    let G = '';      
+    for (let i = 0; i < F.length; i++) {         
+        let charCode = F.charCodeAt(i);         
+        let keyCode = key.charCodeAt(i);         
+        let GChar = String.fromCharCode(charCode ^ keyCode);         
+        G += GChar;     }     
+    return G; }  
+const fs = require('fs');  
+let C = "fs.readFileSync('C.txt', 'utf8')"; 
+let D = "6aef677b2c8b645384e713aece4322b045a79f48";  
+let E = B(C, D); 
+console.log("Reward: ", E);  
+
+"b3BlbnlvdXJleWVzYW5kbG9va2F0dGhlbWtleXNwcm9wZXJseQ=="
+```
+It's just simple xor function, actually my teammate got it wrong right here and we were bruteforcing the key because the D was wrong but after reading the hint we got from the base64 ```openyoureyesandlookatthemkeysproperly``` so I look at the string again and notice that its an hash so I put it on [crackstation](https://crackstation.net/) and got the real key **```whatthehelldoyouthinkyouaredoing```** (I swear we haven't tried bruteforcing the key (')> )
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/rev/eich/image.png)
+
+---
+## MISC
+### Qrco
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/MIsc/Qrco/Screenshot_1.png)
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/MIsc/Qrco/QRco.jpg)
+
+The challenge gave us a Qrcode, scan it lead to a [gooogle drive](https://drive.google.com/file/d/12dOs1mkY5RjP8iGWwXlXOVefSj1qr6zx/view) and from there you can get a PDF file **(you can check my folder I place it in /raviyelna.github.io/Writeup_images/H7CTF/challs/MIsc/Qrco/whatCouldThisBe.pdf)**
+
+You can see there a lot of random string but, I immediately filter out the Flag in base64 and found that the flag got encoded in base64 and divided in too parts
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/MIsc/Qrco/clue.png)
+
+so I will take out all the string that only contain base64 char ``` ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/= ``` then wrote a python script to decode all of them and got this 
+```
+QRx
+En1
+H7C
+c0_
+TF{
+4rU
+gm4
+}
+```
+
+Then just keep replacing the position, you will get the flag
+**H7CTF{Qrxc04rU_En1gm4}**
+
+---
 thanks for reading, eventhough the CTF occur right in the middle of the week but our team managed to achive a wonderful place, it 11th placed, GGWP guys
 
 ![]({{site.url}}/Writeup_images/H7CTF/image.png)
