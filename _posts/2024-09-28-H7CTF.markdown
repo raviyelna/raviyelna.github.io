@@ -29,7 +29,7 @@ The challenge gave us a weird image, after checking it for awhile and read the d
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Evolve/image.png)
 
-So here how it need to be done, the chall desp mentioned about Fourier, if you reasearch about his name there ảe something called [**Fourier Transform in Cryptography**](https://medium.com/privacy-preserving-natural-language-processing/homomorphic-encryption-for-beginners-a-practical-guide-part-2-the-fourier-transform-77bcaf9a1756) and here the script to do that
+So here how it need to be done, the chall desp mentioned about Fourier, if you reasearch about his name there are something called [**Fourier Transform in Cryptography**](https://medium.com/privacy-preserving-natural-language-processing/homomorphic-encryption-for-beginners-a-practical-guide-part-2-the-fourier-transform-77bcaf9a1756) and here the script to do that
 
 ```py
 import cv2
