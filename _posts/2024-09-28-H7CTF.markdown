@@ -61,7 +61,11 @@ Running that code will give you this
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/GhostIP/Screenshot_1.png)
 
 the Challenge gave us a pcap file and told us to look for the attacker's IP.
-its pretty obvious by checking the weight of these conversartion and the their behaviour we can easily confirm it 192.168.1.9, so I wont be talking much about this challenge.
+open it in wireshark and check for conversation and then filter out the RST flag cause that one of the quickest way to know if someone trying to scan the host.
+
+![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/GhostIP/image.png)
+
+its pretty obvious by checking the conversartion and the their behaviour we can easily confirm it **192.168.1.9**, so I wont be talking much about this challenge.
 
 ---
 
