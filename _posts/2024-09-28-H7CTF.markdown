@@ -136,7 +136,39 @@ console.log("Reward: ", E);
 
 "b3BlbnlvdXJleWVzYW5kbG9va2F0dGhlbWtleXNwcm9wZXJseQ=="
 ```
-It's just simple xor function, actually my teammate got it wrong right here and we were bruteforcing the key because the D was wrong but after reading the hint we got from the base64 ```openyoureyesandlookatthemkeysproperly``` so I look at the string again and notice that its an hash so I put it on [crackstation](https://crackstation.net/) and got the real key **```whatthehelldoyouthinkyouaredoing```** (I swear we haven't tried bruteforcing the key (')> )
+It's just simple xor function, actually my teammate got it wrong right here and we were bruteforcing the key because the D was wrong but after reading the hint we got from the base64 ```openyoureyesandlookatthemkeysproperly``` so I look at the string again and notice that its an hash so I put it on [crackstation](https://crackstation.net/) and got the real key **```whatthehelldoyouthinkyouaredoing```** 
+
+Decode Script:
+```py
+import base64
+
+def generate_key(keystring, length):
+    key = ""
+    for i in range(length):
+        key += keystring[i % len(keystring)]
+    return key
+
+def encrypt_decrypt(string, key):
+    result = ""
+    for i in range(len(string)):
+        char = string[i]
+        key_char = key[i]
+        result += chr(ord(char) ^ ord(key_char))
+    return result
+
+with open('trap') as f:
+    encrypted = f.read()
+
+key = "whatthehelldoyouthinkyouaredoing"
+
+key = generate_key(key, len(encrypted))
+plaintext = encrypt_decrypt(encrypted, key)
+
+print(plaintext)
+```
+
+
+**(I swear we haven't tried bruteforcing the key (')> )**
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/rev/eich/image.png)
 
