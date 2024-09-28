@@ -75,7 +75,7 @@ At first when looking at the challenge I immediately try stegsnow but it return 
 
 ![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/CaptainCool/image.png)
 
-this can be decoded to youspottingthismeansyougotsomesharpeyeswellkeeplooking, anyway it just a distraction so put it away.
+this can be decoded to ```youspottingthismeansyougotsomesharpeyeswellkeeplooking```, anyway it just a distraction so put it away.
 
 You can wandering around the internet and you will eventually find something call "openstego" running the image inside that as extract mode and you got a binary
 
@@ -91,7 +91,7 @@ Decode that string will give us a hex string then from thet hex string you can g
 
 The challenge gave us a zip file but it has a password, let crack it first
 
-![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/Screenshot_2.png)
+![]({{site.url}}/Writeup_images/H7CTF/challs/Forensics/Empty/john.png)
 
 okay so we got the password, unzip there a github file inside the first thing I would be checking is commit section but unfortunately I wasnt be able to solve this because I was solving like 15 mins before the ending (I was studying lmao, Idek why this CTF opened right in the middle of the week instead of the weekend) anyway lets back to solving it, if you open the Head in the log you will see alot of weird string like this
 
