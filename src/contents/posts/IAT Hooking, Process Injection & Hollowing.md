@@ -18,7 +18,7 @@ Windows portable executable contains a structure called Import Address Table (IA
 
 IAT hooking pretty much work like the picture below,instead of jump to the address of the MessageBoxA in user32.dll it will jump to the Malicious code first then after executing that code, it will jump to the MessageBoxA in user32.dll.
 
-![alt text](/IAT_PI_PH_Asset/images/image.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image.png)
 
 **Note: it's actually user32.dll not kernel32 my bad.**
 
@@ -46,7 +46,7 @@ typedef IMAGE_IMPORT_DESCRIPTOR UNALIGNED *PIMAGE_IMPORT_DESCRIPTOR;
 
 The `IMAGE_IMPORT_DESCRIPTOR` structure contains information about the imported functions and their addresses. The `OriginalFirstThunk` field points to the original unbound IAT, which contains the names of the imported functions and the `FirstThunk` field points to the actual IAT, which contains the addresses of the imported functions.
 
-![alt text](/IAT_PI_PH_Asset/images/image-10.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-10.png)
 
 And the Actual IAT structure is like this:
 
@@ -108,13 +108,13 @@ You may see now the `OriginalFirstThunk` and `FirstThunk` are actually the same,
 
 So the question here, what if we overwritten that address (FirstThunk) with our own function address? Here I have a breakpoint at MessageboxA, and I will hook it with my own function that contains the malicious code that I have prepared. The function will be called `hookedMessageBox` and it will be called instead of the original `MessageBoxA` function. Remember the original Address, it's `00007ffc40a68b70`.
 
-![alt text](/IAT_PI_PH_Asset/images/image-8.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-8.png)
 
 If you do a bit of calculating you will see this is the correct MessageBoxA's RVA in the EAT of `User32.dll`
 
-![alt text](/IAT_PI_PH_Asset/images/image-9.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-9.png)
 
-![alt text](/IAT_PI_PH_Asset/images/image-11.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-11.png)
 
 I have here is an example of a function that use to hook the original function with the targeted function that has the malicious code that I have prepared.
 
@@ -167,21 +167,21 @@ void HookIAT(string function) {
 
 Now after running again the program, you will see the address of the `MessageBoxA` has been changed to the address of the `hookedMessageBox` function. The `hookedMessageBox` function will be called instead of the original `MessageBoxA` function. I will show it in IDA debugging since it way more clearer then using Windbg for this problem. You can see the address of the `MessageBoxA` before the hooking, it's `0x7ffb71698b70`.
 
-![alt text](/IAT_PI_PH_Asset/images/image-1.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-1.png)
 
-![alt text](/IAT_PI_PH_Asset/images/image-2.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-2.png)
 
 Okay let's go over the Hooking function, rechecking the address of the `MessageBoxA` now, you will see the different, the address now will be `0x7ff7a28516c0` instead of the original one.
 
-![alt text](/IAT_PI_PH_Asset/images/image-3.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-3.png)
 
 If we step into the instruction where it called the MessageBoxA after got hooked it will jump to the malicious function that I have talked about earlier instead of the original user32.dll MessageBoxA.
 
-![alt text](/IAT_PI_PH_Asset/images/image-4.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-4.png)
 
 Those value in the `OriginalThunk` of those API are the address of them in the DLL, I already explain about them above and if you are wondering how to calculate the raw address from RVA it's `raw = (RVA - Section.VirtualAddress) + Section.PointerToRawData`
 
-![alt text](/IAT_PI_PH_Asset/images/image-6.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-6.png)
 
 So pretty much that its but you may notice one thing that Mentioned above too, it's the `thunk` field, right now it may have the same value as `originalthunk` but when it got loaded into a process the value will be changing into the address of the API when loaded. So we can use this value by overwritten it with the address of the malicious function that we have prepared.
 
@@ -195,7 +195,7 @@ Process injection can be used to bypass security measures, such as antivirus sof
 
 ### Analysis
 
-![alt text](/IAT_PI_PH_Asset/images/image-12.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-12.png)
 
 The Injector will find the target process and allocate memory in the target process's address space. Then, it will write the DLL into the allocated memory. Finally, it will create a remote thread in the target process to execute the DLL.
 
@@ -269,9 +269,9 @@ Running the program will create a new thread in the target process and execute t
 
 We can valid this by checking the memory inside the notepad process, you will see the DLL that we injected into the target process.
 
-![alt text](/IAT_PI_PH_Asset/images/image-13.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-13.png)
 
-![alt text](/IAT_PI_PH_Asset/images/image-14.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-14.png)
 
 This is still can be detected easily since I used the `CreateRemoteThread` API to create a new thread in the target process. This API is often monitored by antivirus software and can be used to detect process injection attempts.
 
@@ -415,7 +415,7 @@ Process hollowing is a technique used by malware to inject code into a target pr
 
 ### Analysis
 
-![alt text](/IAT_PI_PH_Asset/images/image-15.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-15.png)
 
 The evil.exe will create or find a new process in a suspended state (usually is create because if it find a running process to hollow then it is more likely a process injection instead of hollowing), allocate memory in the target process's address space, write the malicious code into the allocated memory, and then resume the target process to execute the malicious code.
 
@@ -444,19 +444,19 @@ WriteProcessMemory(destProcess, newDestImageBase, sourceFileBytesBuffer, ntHeade
 
 Before un-mapping:
 
-![alt text](/IAT_PI_PH_Asset/images/image-16.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-16.png)
 
 After un-mapping:
 
-![alt text](/IAT_PI_PH_Asset/images/image-17.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-17.png)
 
 The image contain the path to the notepad.exe completely gone then it will write a new memory into the process, if you look carefully the new memory got written into the same address as the original notepad.exe location.
 
-![alt text](/IAT_PI_PH_Asset/images/image-18.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-18.png)
 
 finally it will resume the process to execute the malicious code.
 
-![alt text](/IAT_PI_PH_Asset/images/image-19.png)
+![alt text](https://raw.githubusercontent.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/refs/heads/main/Asset/IAT_PI_PH_Asset/images/image-19.png)
 
 all the source code will be in this [folder](https://github.com/raviyelna/Journey-into-the-Fundamental-of-Malware-Analysing/tree/main/Asset/IAT_PI_PH_Asset/Script)
 
