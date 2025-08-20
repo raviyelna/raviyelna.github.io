@@ -36,7 +36,7 @@ const YukinaConfig: Configuration = {
   avatarUrl: "https://avatars.githubusercontent.com/u/148680564?v=4",
   socialLinks: [
     {
-      icon: "line-md:github-loop",
+      icon: "mingcute:github-line",
       link: "https://github.com/raviyelna",
     },
     {
@@ -46,6 +46,10 @@ const YukinaConfig: Configuration = {
     {
       icon: "mingcute:social-x-line",
       link: "https://x.com/Kawn28",
+    },
+    {
+      icon:"mingcute:linkedin-line",
+      link:"https://www.linkedin.com/in/le-nhut-quoc-khang-838316353",
     },
   ],
   maxSidebarCategoryChip: 6, // It is recommended to set it to a common multiple of 2 and 3
