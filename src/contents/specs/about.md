@@ -4,7 +4,7 @@
    
   <div class="flex shrink-0">
     <img
-      src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/493735322_1745897429635144_8169869737499383310_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEboVmHIcBscqfShpJyKrDfS9bRVtwom3VL1tFW3CibdTXE8pDmOQ_IH7_b2aB-eB6UGZh2q61xP3-qxcNFVJnx&_nc_ohc=_Rzbwk6OTjgQ7kNvwH43wQf&_nc_oc=AdkfB4_PNOQdT8WiRTOHAtFl5CIhCm_uD-7VRmyYq0t3W-BicfTKntmfOUiUydcKXFg&_nc_zt=23&_nc_ht=scontent.fsgn19-1.fna&_nc_gid=WrgXq4frsYFRrDMHKTJPWA&oh=00_AfXfZHCHmvZseOvK748WWqHA3E88S2doSaHKsi2HhHJJqQ&oe=68ABF07A"
+      src="https://media.licdn.com/dms/image/v2/D4D03AQHGPFX08deonw/profile-displayphoto-crop_800_800/B4DZjCPmu2GgAI-/0/1755605530493?e=1758758400&v=beta&t=wJm__8mVYKLTRFNVpbENWDwJSaVX_G9rhPbDL9BOd1g"
       alt="Profile Picture"
       class="flex w-40 h-40 rounded-xl object-cover shadow"
     />
