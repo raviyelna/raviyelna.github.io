@@ -23,8 +23,6 @@
       class="flex object-cover shadow"
     />
 </div>
-  
-
 
 </div>
 

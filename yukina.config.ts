@@ -29,6 +29,10 @@ const YukinaConfig: Configuration = {
       nameKey: I18nKeys.nav_bar_github,
       href: "https://github.com/raviyelna",
     },
+    {
+      nameKey: I18nKeys.nav_bar_Webwork,
+      href: "/web-work",
+    },
   ],
 
   username: "Raviyelna",
