@@ -46,7 +46,7 @@
 - Current Status: 
   * 3rd years student at HCMUTE
   * Operations Team Member of HCMUTE Information Security Club
-  * Cloud Security at FPT software Security As a Services
+  * Cloud Security at FPT software Cybersecurity Assurance Service
   * BlitzHack CTF Team Moderator
 
 
