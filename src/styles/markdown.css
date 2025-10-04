@@ -142,9 +142,9 @@
 }
 
 body {
-  cursor: url("https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/src/public//Cursor7_Zani_pen.png"), auto;
+  cursor: url("https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/refs/heads/main/public/Cursor7_Zani_pen.png"), auto;
 }
 
 a, button, input, textarea, select {
-  cursor: url("https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/src/public/Cursor15_Zani_link.png"), pointer;
+  cursor: url("https://raw.githubusercontent.com/raviyelna/raviyelna.github.io/refs/heads/main/public/Cursor15_Zani_link.png"), pointer;
 }
