@@ -6,7 +6,7 @@ import Banner from "../components/Banner.astro";
 import YukinaConfig from "../../yukina.config";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
-
+import RightSideBar from "../components/RightSidebar.astro";
 export interface Props {
   title?: string;
   subTitle?: string;
@@ -42,6 +42,9 @@ const props = Astro.props;
         </main>
         <Footer />
       </div>
+      <div class="right-side-bar">
+        <RightSideBar />
+      </div>
     </div>
   </div>
 </Base>
@@ -53,8 +56,14 @@ const props = Astro.props;
   }
 
   .side-bar {
+
     @apply hidden min-w-[248px] xl:block;
   }
+
+  .right-side-bar {
+    @apply hidden min-w-[248px] xl:block;
+  }
+
 
   .content {
     @apply xl:w-[calc(var(--page-width-xl)-264px)];
