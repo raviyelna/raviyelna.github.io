@@ -26,13 +26,18 @@ const YukinaConfig: Configuration = {
       href: "/about",
     },
     {
+      nameKey: I18nKeys.nav_bar_project,
+      href: "/project",
+    },
+    {
+      nameKey: I18nKeys.nav_bar_threat_intel,
+      href: "/threat-intel",
+    },
+    {
       nameKey: I18nKeys.nav_bar_github,
       href: "https://github.com/raviyelna",
     },
-    {
-      nameKey: I18nKeys.nav_bar_Webwork,
-      href: "/web-work",
-    },
+
   ],
 
   username: "Raviyelna",

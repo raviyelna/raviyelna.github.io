@@ -1,0 +1,8 @@
+---
+import Main from "../layouts/MainLayout.astro";
+import ThreatIntelArchive from "../components/ThreatIntelArchive.svelte";
+---
+
+<Main title="Threat Intel" subTitle="Live CVEs and campaign reports from public sources.">
+  <ThreatIntelArchive client:load />
+</Main>

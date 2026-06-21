@@ -1,0 +1,97 @@
+---
+import { Icon } from "astro-icon/components";
+import Main from "../layouts/MainLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects, projectSource } from "../data/projects";
+
+const pinnedProjects = projects.filter((project) => project.pinned);
+const otherProjects = projects.filter((project) => !project.pinned);
+
+---
+
+<Main title="Projects" subTitle="Pinned GitHub repositories and recent public work.">
+  <section class="project-wrapper">
+    <div class="project-header">
+      <div>
+        <h1>Projects</h1>
+        <p>
+          Pinned repositories are shown first, followed by recent public repos from GitHub.
+        </p>
+      </div>
+      <a href={projectSource.profileUrl} target="_blank" rel="noopener noreferrer">
+        <Icon name="mingcute:github-line" />
+        <span>GitHub</span>
+      </a>
+    </div>
+
+    <div class="source-line">
+      <span>Synced {projectSource.syncedAt}</span>
+      <span>/</span>
+      <a href={projectSource.reposUrl} target="_blank" rel="noopener noreferrer">
+        API source
+      </a>
+    </div>
+
+    <div class="section-title">
+      <span>Pinned</span>
+    </div>
+    <div class="project-grid pinned-grid">
+      {pinnedProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+
+    <div class="section-title">
+      <span>Recent</span>
+    </div>
+    <div class="project-grid">
+      {otherProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</Main>
+
+<style>
+  .project-wrapper {
+    @apply mx-3 rounded-2xl bg-[var(--card-color)] px-5 py-6 lg:mx-0 lg:px-10 lg:py-9;
+  }
+
+  .project-header {
+    @apply flex flex-col gap-4 border-b border-[var(--primary-color-lighten)] pb-6 md:flex-row md:items-start md:justify-between;
+  }
+
+  .project-header h1 {
+    @apply text-3xl font-bold text-[var(--text-color)];
+    font-family: var(--title-font);
+  }
+
+  .project-header p,
+  .source-line {
+    @apply mt-2 text-sm text-[var(--text-color-lighten)];
+    font-family: var(--primary-font);
+  }
+
+  .project-header > a {
+    @apply inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[var(--primary-color-lighten)] px-4 font-medium text-[var(--primary-color)] transition-all hover:brightness-95;
+    font-family: var(--primary-font);
+  }
+
+  .source-line {
+    @apply flex flex-wrap items-center gap-2;
+  }
+
+  .source-line a {
+    @apply text-[var(--primary-color)] hover:brightness-90;
+  }
+
+  .section-title {
+    @apply mb-4 mt-8 flex flex-row items-center text-xl font-bold text-[var(--text-color)];
+    font-family: var(--primary-font);
+  }
+
+  .section-title::before {
+    @apply mr-3 block h-6 w-1 rounded-lg bg-[var(--primary-color)] content-[''];
+  }
+
+  .project-grid {
+    @apply grid grid-cols-1 gap-4 lg:grid-cols-2;
+  }
+
+</style>

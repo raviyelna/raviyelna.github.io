@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const updatedAt = new Intl.DateTimeFormat("en", {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+}).format(new Date(project.updatedAt));
+---
+
+<article class="project-card">
+  <div class="card-top">
+    <a href={project.url} target="_blank" rel="noopener noreferrer">
+      <Icon name="mingcute:github-line" />
+      <span>{project.name}</span>
+    </a>
+    {project.pinned && <span class="badge">Pinned</span>}
+    {project.fork && <span class="badge muted">Fork</span>}
+  </div>
+  <p>{project.description}</p>
+  <div class="project-meta">
+    {
+      project.language && (
+        <span>
+          <i />
+          {project.language}
+        </span>
+      )
+    }
+    <span>
+      <Icon name="mingcute:star-line" />
+      {project.stars}
+    </span>
+    <span>
+      <Icon name="mdi:source-fork" />
+      {project.forks}
+    </span>
+    <span>Updated {updatedAt}</span>
+  </div>
+  <div class="project-actions">
+    <a href={project.url} target="_blank" rel="noopener noreferrer">
+      Repository
+    </a>
+    {
+      project.homepage && (
+        <a href={project.homepage} target="_blank" rel="noopener noreferrer">
+          Live site
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .project-card {
+    @apply flex min-h-56 flex-col justify-between rounded-xl border border-[var(--primary-color-lighten)] bg-[var(--background-color)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--primary-color)] hover:shadow-lg;
+  }
+
+  .card-top {
+    @apply flex flex-wrap items-center gap-2;
+  }
+
+  .card-top > a {
+    @apply flex min-w-0 flex-1 items-center gap-2 text-lg font-semibold text-[var(--text-color)] transition-colors hover:text-[var(--primary-color)];
+    font-family: var(--primary-font);
+  }
+
+  .card-top span {
+    @apply truncate;
+  }
+
+  .badge {
+    @apply rounded-md bg-[var(--primary-color)] px-2 py-1 text-xs font-semibold text-white;
+    font-family: var(--primary-font);
+  }
+
+  .badge.muted {
+    @apply bg-[var(--primary-color-lighten)] text-[var(--primary-color)];
+  }
+
+  .project-card p {
+    @apply my-4 line-clamp-3 text-sm leading-6 text-[var(--text-color-lighten)];
+    font-family: var(--primary-font);
+  }
+
+  .project-meta {
+    @apply flex flex-wrap gap-3 text-xs text-[var(--text-color-lighten)];
+    font-family: var(--primary-font);
+  }
+
+  .project-meta span {
+    @apply inline-flex items-center gap-1;
+  }
+
+  .project-meta i {
+    @apply block h-2.5 w-2.5 rounded-full bg-[var(--primary-color)];
+  }
+
+  .project-actions {
+    @apply mt-5 flex flex-wrap gap-2;
+  }
+
+  .project-actions a {
+    @apply rounded-lg bg-[var(--primary-color-lighten)] px-3 py-2 text-sm font-medium text-[var(--primary-color)] transition-all hover:brightness-95;
+    font-family: var(--primary-font);
+  }
+</style>

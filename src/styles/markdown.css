@@ -136,6 +136,56 @@
   margin-bottom: 0.75rem;
 }
 
+.article .lightbox-image {
+  cursor: zoom-in;
+}
+
+#image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+#image-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: zoom-out;
+}
+
+#image-lightbox img {
+  max-width: min(100%, 1120px);
+  max-height: 88vh;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.image-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 2rem;
+  line-height: 1;
+  transition: background 160ms ease;
+}
+
+.image-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
 .article .astro-code {
   border-radius: 0.75rem !important;
   scrollbar-width: thin;

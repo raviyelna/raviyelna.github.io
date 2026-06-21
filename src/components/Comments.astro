@@ -1,0 +1,45 @@
+---
+const utterancesTheme = "github-light";
+const utterancesScript = `
+<script
+  src="https://utteranc.es/client.js"
+  repo="raviyelna/raviyelna.github.io"
+  issue-term="pathname"
+  label="comment"
+  theme="${utterancesTheme}"
+  crossorigin="anonymous"
+  async>
+</script>`;
+---
+
+<section class="comments-wrapper" aria-label="Comments">
+  <div class="comments-title">
+    <span>Comments</span>
+  </div>
+  <div class="comments-panel">
+    <Fragment set:html={utterancesScript} />
+  </div>
+</section>
+
+<style>
+  .comments-wrapper {
+    @apply mx-3 mt-8 rounded-2xl bg-[var(--card-color)] px-5 py-6 lg:mx-0 lg:px-10 lg:py-8;
+  }
+
+  .comments-title {
+    @apply mb-4 flex flex-row items-center text-xl font-bold text-[var(--text-color)];
+    font-family: var(--primary-font);
+  }
+
+  .comments-title::before {
+    @apply mr-3 block h-6 w-1 rounded-lg bg-[var(--primary-color)] content-[''];
+  }
+
+  .comments-panel {
+    @apply min-h-24;
+  }
+
+  :global(.utterances) {
+    max-width: 100% !important;
+  }
+</style>
